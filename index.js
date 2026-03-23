@@ -20,10 +20,22 @@ const Wappalyzer = require('wappalyzer')
 
 const { analyzeDns } = require('./lib/dns-analysis')
 const { analyzeRobots } = require('./lib/robots-analysis')
+const { analyzeSsl } = require('./lib/ssl-analysis')
+const { analyzeDynamicDetailed } = require('./lib/dynamic-analysis')
+const { analyzeHiddenSurfaces } = require('./lib/hidden-analysis')
+const { scanSignals } = require('./lib/signal-scanners')
+const { runWhatWeb, isWhatWebAvailable } = require('./lib/whatweb-worker')
 const { mergeTechnologies } = require('./lib/merge-technologies')
 const { collectExtraWappalyzerUrls } = require('./lib/internal-link')
-const { fetchText } = require('./lib/http-fetch')
+const { fetchTextWithMeta } = require('./lib/http-fetch')
 const { mapWappalyzerTechnologies } = require('./lib/wappalyzer-proof')
+const { ensureLatestWappalyzerRules } = require('./lib/wappalyzer-rules-sync')
+const {
+  DEFAULT_RULES_PATH,
+  loadCustomRules,
+  applyCustomRules,
+} = require('./lib/custom-rules')
+const { syncWebanalyzerRules } = require('./lib/webanalyzer-sync')
 const {
   DESKTOP_USER_AGENT,
   MOBILE_USER_AGENT,
@@ -32,7 +44,7 @@ const {
 
 const DEFAULT_INPUT = 'domains.snappy.parquet'
 const DEFAULT_OUTPUT = 'output.json'
-const CONCURRENCY = 20
+const CONCURRENCY = 10
 
 /** Puppeteer / Wappalyzer navigation & script budget (lazy trackers, hydration). */
 const WAPPALYZER_MAX_WAIT_MS = 45_000
@@ -41,9 +53,12 @@ const WAPPALYZER_DELAY_MS = 2500
 /** Homepage HTML fetch for internal link discovery. */
 const HTML_FETCH_MS = 22_000
 /** Extra URLs after desktop homepage (HTML + static fallbacks). */
-const MAX_EXTRA_WAPPALYZER_URLS = 4
+const MAX_EXTRA_WAPPALYZER_URLS = 5
 /** Mobile pass: homepage + up to this many extra URLs (keep small for runtime). */
-const MAX_MOBILE_EXTRA_WAPPALYZER_URLS = 1
+const MAX_MOBILE_EXTRA_WAPPALYZER_URLS = 2
+/** Deep crawl dynamic pages */
+const MAX_DYNAMIC_CRAWL_URLS = 5
+const DYNAMIC_TARGET_TIMEOUT_MS = 65_000
 /**
  * Whole-domain budget: DNS + robots + desktop (1 + MAX_EXTRA) + mobile (1 + MAX_MOBILE_EXTRA)
  * Wappalyzer runs + probes. Scroll/viewport patches in `wappalyzer` driver.
@@ -181,7 +196,7 @@ async function appendWappalyzerPass(url, html, layers, profile) {
  * @param {string} domain
  * @returns {Promise<{ domain: string, technologies: Array<{ name: string, version: string|null, proof: string }> }>}
  */
-async function analyzeDomain(domain) {
+async function analyzeDomain(domain, customRules, whatwebAvailable) {
   const url = normalizeUrl(domain)
 
   let hostname
@@ -191,16 +206,18 @@ async function analyzeDomain(domain) {
     return { domain, technologies: [] }
   }
 
-  const [dnsTechs, robotsTechs, html] = await Promise.all([
+  const [dnsTechs, robotsTechs, sslTechs, pageMeta] = await Promise.all([
     analyzeDns(hostname).catch(() => []),
     analyzeRobots(hostname).catch(() => []),
-    fetchText(url, { timeoutMs: HTML_FETCH_MS, maxRedirects: 6 }).catch(
-      () => ''
+    analyzeSsl(hostname).catch(() => []),
+    fetchTextWithMeta(url, { timeoutMs: HTML_FETCH_MS, maxRedirects: 6 }).catch(
+      () => ({ body: '', headers: {}, finalUrl: url })
     ),
   ])
+  const html = pageMeta.body || ''
 
   /** @type {Array<Array<{ name: string, version: string|null, proof: string }>>} */
-  const layers = [dnsTechs, robotsTechs]
+  const layers = [dnsTechs, robotsTechs, sslTechs]
 
   await appendWappalyzerPass(url, html, layers, {
     userAgent: DESKTOP_USER_AGENT,
@@ -213,6 +230,46 @@ async function analyzeDomain(domain) {
     viewport: MOBILE_VIEWPORT,
     maxExtra: MAX_MOBILE_EXTRA_WAPPALYZER_URLS,
   })
+
+  const deepUrls = collectExtraWappalyzerUrls(html, url, MAX_DYNAMIC_CRAWL_URLS)
+  const dynamicTargets = [url, ...deepUrls].slice(0, MAX_DYNAMIC_CRAWL_URLS + 1)
+  const dynamicResults = await Promise.all(
+    dynamicTargets.map((u) =>
+      withTimeout(
+        analyzeDynamicDetailed(u, { timeoutMs: WAPPALYZER_MAX_WAIT_MS }),
+        DYNAMIC_TARGET_TIMEOUT_MS,
+        `dynamic scan ${u}`
+      ).catch(() => ({ technologies: [], signals: { url: u } }))
+    )
+  )
+
+  for (const r of dynamicResults) {
+    layers.push(r.technologies || [])
+  }
+
+  const hiddenTechs = await analyzeHiddenSurfaces(url, hostname).catch(() => [])
+  layers.push(hiddenTechs)
+
+  const signalTechs = scanSignals({
+    html,
+    headers: pageMeta.headers || {},
+  })
+  layers.push(signalTechs)
+
+  const mergedSignals = {
+    url: pageMeta.finalUrl || url,
+    html,
+    headers: pageMeta.headers || {},
+    scriptSrc: dynamicResults.flatMap((r) => r.signals?.scriptSrc || []),
+    windowKeys: dynamicResults.flatMap((r) => r.signals?.windowKeys || []),
+  }
+  const customTechs = applyCustomRules(customRules, mergedSignals)
+  layers.push(customTechs)
+
+  if (whatwebAvailable) {
+    const whatwebTechs = await runWhatWeb(url, { timeoutMs: 20_000 }).catch(() => [])
+    layers.push(whatwebTechs)
+  }
 
   const technologies = mergeTechnologies(...layers)
   return { domain, technologies }
@@ -299,6 +356,16 @@ async function main() {
   const outputPath =
     process.argv[3] || process.env.OUTPUT_FILE || DEFAULT_OUTPUT
 
+  await ensureLatestWappalyzerRules()
+  const webanalyzerCount = (await syncWebanalyzerRules()).length
+  if (webanalyzerCount > 0) {
+    console.log(`[rules] WebAnalyzer supplement: ${webanalyzerCount} technologies loaded`)
+  }
+  const customRulesPath = process.env.CUSTOM_RULES_FILE || DEFAULT_RULES_PATH
+  const customRules = await loadCustomRules(customRulesPath)
+  const whatwebAvailable = await isWhatWebAvailable()
+  if (whatwebAvailable) console.log('[detector] WhatWeb detected — enabling supplemental scan')
+
   await fs.access(inputPath).catch(() => {
     throw new Error(
       `Input file not found: ${path.resolve(inputPath)}. Place your Parquet file there or pass a path: node index.js <input.parquet> [output.json]`
@@ -319,7 +386,9 @@ async function main() {
   }
 
   const processingStartedAt = performance.now()
-  const results = await runWithConcurrency(domains, analyzeDomain)
+  const results = await runWithConcurrency(domains, (d) =>
+    analyzeDomain(d, customRules, whatwebAvailable)
+  )
   const processingMs = performance.now() - processingStartedAt
 
   console.log(

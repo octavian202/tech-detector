@@ -69,26 +69,38 @@ if (!s.includes(getJsAnchor)) {
 
 s = s.replace(getJsAnchor, '\n' + SCROLL_FN + getJsAnchor)
 
-const gotoSleepBlock = `      if (!this.options.noScripts) {
+const gotoSleepBlockVariants = [
+  `      if (!this.options.noScripts) {
         await sleep(1000)
       }
 
-      // page.on('console', (message) => this.log(message.text()))`
-
-const gotoSleepBlockPatched = `      if (!this.options.noScripts) {
-        await sleep(1000)
-        await scrollPageForLazyContent(page)
+      // page.on('console', (message) => this.log(message.text()))`,
+  `      if (!this.options.noScripts) {
+        await sleep(this.options.fast ? 1000 : 3000)
       }
 
-      // page.on('console', (message) => this.log(message.text()))`
+      // page.on('console', (message) => this.log(message.text()))`,
+]
 
-if (!s.includes(gotoSleepBlock)) {
+let patched = false
+for (const block of gotoSleepBlockVariants) {
+  if (!s.includes(block)) {
+    continue
+  }
+  const patchedBlock = block.replace(
+    /\n      }\n\n      \/\/ page\.on\('console'/,
+    '\n        await scrollPageForLazyContent(page)\n      }\n\n      // page.on(\'console\''
+  )
+  s = s.replace(block, patchedBlock)
+  patched = true
+  break
+}
+
+if (!patched) {
   process.stderr.write(
     'patch-wappalyzer-scroll: post-goto sleep block not found; skip\n'
   )
   process.exit(0)
 }
-
-s = s.replace(gotoSleepBlock, gotoSleepBlockPatched)
 fs.writeFileSync(driverPath, s)
 process.stderr.write('patch-wappalyzer-scroll: applied\n')

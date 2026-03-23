@@ -1,0 +1,54 @@
+{
+  "technologies": [
+    {
+      "name": "Cloudflare",
+      "headers": [
+        {
+          "key": "server",
+          "regex": "cloudflare"
+        },
+        {
+          "key": "cf-ray",
+          "regex": ".+"
+        }
+      ],
+      "scriptSrc": [
+        {
+          "regex": "/cdn-cgi/"
+        }
+      ]
+    },
+    {
+      "name": "Vercel",
+      "headers": [
+        {
+          "key": "x-vercel-id",
+          "regex": ".+"
+        }
+      ],
+      "url": [
+        {
+          "regex": "vercel\\.app"
+        }
+      ]
+    },
+    {
+      "name": "Next.js",
+      "html": [
+        {
+          "regex": "__NEXT_DATA__"
+        }
+      ],
+      "scriptSrc": [
+        {
+          "regex": "/_next/static/"
+        }
+      ],
+      "window": [
+        {
+          "key": "__NEXT_DATA__"
+        }
+      ]
+    }
+  ]
+}

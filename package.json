@@ -5,17 +5,18 @@
   "description": "Identify website technologies via Wappalyzer (Puppeteer) from a Parquet domain list",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node node_modules/puppeteer/install.js && node scripts/patch-wappalyzer-scroll.js && node scripts/patch-wappalyzer-viewport.js",
-    "install-chromium": "node node_modules/puppeteer/install.js",
-    "start": "node index.js"
+    "postinstall": "node node_modules/puppeteer/install.mjs && node scripts/patch-wappalyzer-scroll.js && node scripts/patch-wappalyzer-viewport.js",
+    "install-chromium": "node node_modules/puppeteer/install.mjs",
+    "start": "node index.js",
+    "sync-webanalyzer": "node -e \"require('./lib/webanalyzer-sync').syncWebanalyzerRules().then(r=>console.log('Synced',r.length,'technologies'))\""
   },
   "engines": {
     "node": ">=16"
   },
   "dependencies": {
-    "p-queue": "6.6.2",
+    "p-queue": "^9.1.0",
     "parquetjs-lite": "^0.8.7",
-    "puppeteer": "19.7.5",
-    "wappalyzer": "6.10.65"
+    "puppeteer": "^24.40.0",
+    "wappalyzer": "^6.10.66"
   }
 }
