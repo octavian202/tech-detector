@@ -31,6 +31,11 @@ const { fetchTextWithMeta } = require('./lib/http-fetch')
 const { mapWappalyzerTechnologies } = require('./lib/wappalyzer-proof')
 const { ensureLatestWappalyzerRules } = require('./lib/wappalyzer-rules-sync')
 const {
+  combineSyncAndMergedApplyToWappalyzer,
+  hasMergedBundle,
+  MERGED_DIR,
+} = require('./lib/merge-all-technology-rules')
+const {
   DEFAULT_RULES_PATH,
   loadCustomRules,
   applyCustomRules,
@@ -53,7 +58,7 @@ const WAPPALYZER_DELAY_MS = 2500
 /** Homepage HTML fetch for internal link discovery. */
 const HTML_FETCH_MS = 22_000
 /** Extra URLs after desktop homepage (HTML + static fallbacks). */
-const MAX_EXTRA_WAPPALYZER_URLS = 5
+const MAX_EXTRA_WAPPALYZER_URLS = 6
 /** Mobile pass: homepage + up to this many extra URLs (keep small for runtime). */
 const MAX_MOBILE_EXTRA_WAPPALYZER_URLS = 2
 /** Deep crawl dynamic pages (single Chromium: homepage + up to N extras in series). */
@@ -66,7 +71,8 @@ const DYNAMIC_BATCH_TIMEOUT_MS = 220_000
  * Whole-domain budget: DNS + robots + desktop (1 + MAX_EXTRA) + mobile (1 + MAX_MOBILE_EXTRA)
  * Wappalyzer runs + probes. Scroll/viewport patches in `wappalyzer` driver.
  */
-const DOMAIN_ANALYZE_TIMEOUT_MS = 420_000
+/** Slightly above worst-case: Wappalyzer passes + up to MAX_DYNAMIC_CRAWL_URLS+1 dynamic pages. */
+const DOMAIN_ANALYZE_TIMEOUT_MS = 480_000
 
 process.setMaxListeners(Math.max(20, CONCURRENCY * 5))
 
@@ -157,6 +163,10 @@ function buildWappalyzerOptions(userAgent, viewport) {
   if (viewport) {
     o.viewport = viewport
   }
+  const proxy = process.env.PUPPETEER_PROXY || process.env.WAPPALYZER_PROXY
+  if (proxy) {
+    o.proxy = proxy
+  }
   return o
 }
 
@@ -174,7 +184,7 @@ async function appendWappalyzerPass(url, html, layers, profile) {
   try {
     let site = await driver.open(url)
     try {
-      layers.push(mapWappalyzerTechnologies(await site.analyze()))
+      layers.push(await safeWappalyzerAnalyze(site, url))
     } finally {
       await site.destroy().catch(() => {})
     }
@@ -183,13 +193,26 @@ async function appendWappalyzerPass(url, html, layers, profile) {
     for (const internalUrl of extraUrls) {
       site = await driver.open(internalUrl)
       try {
-        layers.push(mapWappalyzerTechnologies(await site.analyze()))
+        layers.push(await safeWappalyzerAnalyze(site, internalUrl))
       } finally {
         await site.destroy().catch(() => {})
       }
     }
   } finally {
     await driver.destroy().catch(() => {})
+  }
+}
+
+/**
+ * Isolated analyze so one bad page / pattern does not drop the whole domain.
+ */
+async function safeWappalyzerAnalyze(site, pageUrl) {
+  try {
+    return mapWappalyzerTechnologies(await site.analyze())
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err)
+    console.warn(`[wappalyzer] analyze failed for ${pageUrl}: ${msg.slice(0, 200)}`)
+    return []
   }
 }
 
@@ -245,9 +268,7 @@ async function analyzeDomain(domain, customRules, whatwebAvailable) {
     'dynamic batch'
   ).catch(() => dynamicTargets.map((u) => ({ technologies: [], signals: { url: u } })))
 
-  for (const r of dynamicResults) {
-    layers.push(r.technologies || [])
-  }
+  layers.push(dynamicBatch.technologies || [])
 
   const hiddenTechs = await analyzeHiddenSurfaces(url, hostname).catch(() => [])
   layers.push(hiddenTechs)
@@ -261,9 +282,12 @@ async function analyzeDomain(domain, customRules, whatwebAvailable) {
   const mergedSignals = {
     url: pageMeta.finalUrl || url,
     html,
-    headers: pageMeta.headers || {},
-    scriptSrc: dynamicResults.flatMap((r) => r.signals?.scriptSrc || []),
-    windowKeys: dynamicResults.flatMap((r) => r.signals?.windowKeys || []),
+    headers: {
+      ...(dynamicBatch.signals?.headers || {}),
+      ...(pageMeta.headers || {}),
+    },
+    scriptSrc: dynamicBatch.signals?.scriptSrc || [],
+    windowKeys: dynamicBatch.signals?.windowKeys || [],
   }
   const customTechs = applyCustomRules(customRules, mergedSignals)
   layers.push(customTechs)
@@ -358,7 +382,35 @@ async function main() {
   const outputPath =
     process.argv[3] || process.env.OUTPUT_FILE || DEFAULT_OUTPUT
 
+  const skipMerged =
+    process.env.USE_MERGED_RULES === '0' ||
+    process.env.USE_MERGED_RULES === 'false'
+
   await ensureLatestWappalyzerRules()
+
+  if (!skipMerged && (await hasMergedBundle())) {
+    const { technologyCount } = await combineSyncAndMergedApplyToWappalyzer()
+    let meta = ''
+    try {
+      const m = JSON.parse(
+        await fs.readFile(path.join(MERGED_DIR, 'merge-meta.json'), 'utf8')
+      )
+      meta = ` [rules/merged built from: ${(m.sources || []).join(', ')}]`
+    } catch {
+      meta = ''
+    }
+    console.log(
+      `[rules] Combined rules/wappalyzer (sync) + rules/merged → node_modules (${technologyCount} technologies)${meta}`
+    )
+  } else if (skipMerged) {
+    console.log(
+      '[rules] USE_MERGED_RULES=0 — only rules/wappalyzer (sync) applied to node_modules'
+    )
+  } else {
+    console.log(
+      '[rules] No rules/merged folder — using rules/wappalyzer (sync) only. Run npm run merge-rules to add the second bundle.'
+    )
+  }
   const webanalyzerCount = (await syncWebanalyzerRules()).length
   if (webanalyzerCount > 0) {
     console.log(`[rules] WebAnalyzer supplement: ${webanalyzerCount} technologies loaded`)

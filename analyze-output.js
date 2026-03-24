@@ -398,8 +398,10 @@ function main() {
   }
 
   const uniqueTechNames = new Set()
+  const countsPerDomain = []
   for (const row of data) {
     const techs = Array.isArray(row.technologies) ? row.technologies : []
+    countsPerDomain.push(techs.length)
     for (const t of techs) {
       uniqueTechNames.add(t.name ?? '(unnamed)')
     }
@@ -472,6 +474,9 @@ function main() {
   )
   console.log(
     `Total detections (sum of all “technologies” entries across domains): ${totalDetections}`
+  )
+  console.log(
+    `Per domain: avg ${avg.toFixed(2)} | median ${median} | min ${min} | max ${max}`
   )
   console.log(
     `Distinct technology names (across all domains): ${uniqueTechNames.size}`

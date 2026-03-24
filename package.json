@@ -5,7 +5,7 @@
   "description": "Identify website technologies via Wappalyzer (Puppeteer) from a Parquet domain list",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node node_modules/puppeteer/install.mjs && node scripts/patch-wappalyzer-scroll.js && node scripts/patch-wappalyzer-viewport.js",
+    "postinstall": "node node_modules/puppeteer/install.mjs && node scripts/patch-wappalyzer-scroll.js && node scripts/patch-wappalyzer-viewport.js && node scripts/patch-wappalyzer-safety.js && node scripts/patch-wappalyzer-stealth.js",
     "install-chromium": "node node_modules/puppeteer/install.mjs",
     "start": "node index.js",
     "analyze-output": "node analyze-output.js",
@@ -18,6 +18,8 @@
     "p-queue": "^9.1.0",
     "parquetjs-lite": "^0.8.7",
     "puppeteer": "^24.40.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
     "wappalyzer": "^6.10.66"
   }
 }
