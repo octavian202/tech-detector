@@ -1,92 +1,61 @@
 {
-  "meta": {
-    "generatedAt": "2026-03-24T17:43:17.768Z",
-    "inputPath": "C:\\proiecte\\tech_detector\\output.json",
-    "outputPath": "C:\\proiecte\\tech_detector\\output-results.json"
-  },
   "summary": {
     "domainCount": 200,
-    "domainsWithAtLeastOneTechnology": 188,
-    "domainsWithZeroTechnologies": 12,
-    "totalTechnologyDetections": 3556,
-    "distinctTechnologyNamesRaw": 412,
-    "distinctTechnologyNamesCanonical": 405
-  },
-  "fieldStats": {
-    "rowKeys": [
-      "domain",
-      "technologies"
-    ],
-    "techKeys": [
-      "name",
-      "proof",
-      "version"
-    ],
-    "techCount": 3556,
-    "versionNull": 2775,
-    "versionNonNull": 781,
-    "proofMissing": 0,
-    "proofEmpty": 0,
-    "nameMissing": 0,
-    "proofLenMin": 25,
-    "proofLenMax": 3331,
-    "proofLenMedian": 110
+    "domainsWithAtLeastOneTechnology": 187,
+    "domainsWithZeroTechnologies": 13,
+    "totalTechnologyDetections": 3609,
+    "distinctTechnologyCount": 464
   },
   "technologies": [
+    {
+      "name": "PHP",
+      "detectionCount": 126,
+      "domainCount": 126
+    },
     {
       "name": "jQuery",
       "detectionCount": 118,
       "domainCount": 118
     },
     {
-      "name": "Open Graph",
-      "detectionCount": 109,
-      "domainCount": 109
-    },
-    {
       "name": "Let's Encrypt",
-      "detectionCount": 108,
-      "domainCount": 108
+      "detectionCount": 107,
+      "domainCount": 107
     },
     {
-      "name": "JQuery",
-      "detectionCount": 103,
-      "domainCount": 103
-    },
-    {
-      "name": "PHP",
-      "detectionCount": 98,
-      "domainCount": 98
-    },
-    {
-      "name": "Google Font API",
-      "detectionCount": 82,
-      "domainCount": 82
-    },
-    {
-      "name": "Cloudflare",
-      "detectionCount": 81,
-      "domainCount": 81
+      "name": "Open Graph",
+      "detectionCount": 107,
+      "domainCount": 107
     },
     {
       "name": "MySQL",
+      "detectionCount": 101,
+      "domainCount": 101
+    },
+    {
+      "name": "WordPress",
+      "detectionCount": 95,
+      "domainCount": 95
+    },
+    {
+      "name": "Google Fonts",
+      "detectionCount": 85,
+      "domainCount": 85
+    },
+    {
+      "name": "Cloudflare",
       "detectionCount": 80,
       "domainCount": 80
     },
     {
       "name": "Nginx",
-      "detectionCount": 73,
-      "domainCount": 73
-    },
-    {
-      "name": "WordPress",
-      "detectionCount": 73,
-      "domainCount": 73
+      "detectionCount": 74,
+      "domainCount": 74
     },
     {
       "name": "HTTP/3",
-      "detectionCount": 72,
-      "domainCount": 72
+      "detectionCount": 71,
+      "domainCount": 71
     },
     {
       "name": "Priority Hints",
@@ -100,2080 +69,23 @@
     },
     {
       "name": "jQuery Migrate",
-      "detectionCount": 68,
-      "domainCount": 68
-    },
-    {
-      "name": "Google Analytics",
       "detectionCount": 67,
       "domainCount": 67
     },
     {
       "name": "Google Tag Manager",
-      "detectionCount": 64,
-      "domainCount": 64
-    },
-    {
-      "name": "core-js",
-      "detectionCount": 63,
-      "domainCount": 63
-    },
-    {
-      "name": "Cart Functionality",
-      "detectionCount": 60,
-      "domainCount": 60
-    },
-    {
-      "name": "Google Fonts",
-      "detectionCount": 58,
-      "domainCount": 58
-    },
-    {
-      "name": "HSTS",
-      "detectionCount": 56,
-      "domainCount": 56
-    },
-    {
-      "name": "Apache HTTP Server",
-      "detectionCount": 54,
-      "domainCount": 54
-    },
-    {
-      "name": "reCAPTCHA",
-      "detectionCount": 48,
-      "domainCount": 48
-    },
-    {
-      "name": "Webpack",
-      "detectionCount": 48,
-      "domainCount": 48
-    },
-    {
-      "name": "Amazon CloudFront",
-      "detectionCount": 45,
-      "domainCount": 45
-    },
-    {
-      "name": "CDN / edge",
-      "detectionCount": 44,
-      "domainCount": 44
-    },
-    {
-      "name": "Twitter Emoji (Twemoji)",
-      "detectionCount": 43,
-      "domainCount": 43
-    },
-    {
-      "name": "Module Federation",
-      "detectionCount": 41,
-      "domainCount": 41
-    },
-    {
-      "name": "Varnish",
-      "detectionCount": 39,
-      "domainCount": 39
-    },
-    {
-      "name": "Google Maps",
-      "detectionCount": 37,
-      "domainCount": 37
-    },
-    {
-      "name": "Lodash",
-      "detectionCount": 37,
-      "domainCount": 37
-    },
-    {
-      "name": "Yoast SEO",
-      "detectionCount": 36,
-      "domainCount": 36
-    },
-    {
-      "name": "jQuery UI",
-      "detectionCount": 34,
-      "domainCount": 34
-    },
-    {
-      "name": "Bootstrap",
-      "detectionCount": 32,
-      "domainCount": 32
-    },
-    {
-      "name": "Swiper",
-      "detectionCount": 32,
-      "domainCount": 32
-    },
-    {
-      "name": "Font Awesome",
-      "detectionCount": 30,
-      "domainCount": 30
-    },
-    {
-      "name": "Microsoft 365",
-      "detectionCount": 30,
-      "domainCount": 30
-    },
-    {
-      "name": "Google Workspace",
-      "detectionCount": 28,
-      "domainCount": 28
-    },
-    {
-      "name": "Google Ads",
-      "detectionCount": 27,
-      "domainCount": 27
-    },
-    {
-      "name": "Cloudflare Bot Management",
-      "detectionCount": 26,
-      "domainCount": 26
-    },
-    {
-      "name": "GoDaddy",
-      "detectionCount": 26,
-      "domainCount": 26
-    },
-    {
-      "name": "React",
-      "detectionCount": 25,
-      "domainCount": 25
-    },
-    {
-      "name": "Contact Form 7",
-      "detectionCount": 19,
-      "domainCount": 19
-    },
-    {
-      "name": "Elementor",
-      "detectionCount": 19,
-      "domainCount": 19
-    },
-    {
-      "name": "Amazon Web Services",
-      "detectionCount": 16,
-      "domainCount": 16
-    },
-    {
-      "name": "Isotope",
-      "detectionCount": 16,
-      "domainCount": 16
-    },
-    {
-      "name": "Meta Pixel",
-      "detectionCount": 16,
-      "domainCount": 16
-    },
-    {
-      "name": "OpenResty",
-      "detectionCount": 16,
-      "domainCount": 16
-    },
-    {
-      "name": "Lightbox",
-      "detectionCount": 15,
-      "domainCount": 15
-    },
-    {
-      "name": "JavaScript CDN",
-      "detectionCount": 14,
-      "domainCount": 14
-    },
-    {
-      "name": "Modernizr",
-      "detectionCount": 14,
-      "domainCount": 14
-    },
-    {
-      "name": "Sentry",
-      "detectionCount": 14,
-      "domainCount": 14
-    },
-    {
-      "name": "Slick",
-      "detectionCount": 14,
-      "domainCount": 14
-    },
-    {
-      "name": "Akamai",
-      "detectionCount": 13,
-      "domainCount": 13
-    },
-    {
-      "name": "cdnjs",
-      "detectionCount": 13,
-      "domainCount": 13
-    },
-    {
-      "name": "DigiCert",
-      "detectionCount": 13,
-      "domainCount": 13
-    },
-    {
-      "name": "Google Hosted Libraries",
-      "detectionCount": 13,
-      "domainCount": 13
-    },
-    {
-      "name": "GSAP",
-      "detectionCount": 13,
-      "domainCount": 13
-    },
-    {
-      "name": "jsDelivr",
-      "detectionCount": 13,
-      "domainCount": 13
-    },
-    {
-      "name": "LiteSpeed",
-      "detectionCount": 13,
-      "domainCount": 13
-    },
-    {
-      "name": "OWL Carousel",
-      "detectionCount": 12,
-      "domainCount": 12
-    },
-    {
-      "name": "PWA",
-      "detectionCount": 12,
-      "domainCount": 12
-    },
-    {
-      "name": "Google Cloud",
-      "detectionCount": 11,
-      "domainCount": 11
-    },
-    {
-      "name": "Google Cloud CDN",
-      "detectionCount": 11,
-      "domainCount": 11
-    },
-    {
-      "name": "YouTube",
-      "detectionCount": 11,
-      "domainCount": 11
-    },
-    {
-      "name": "AngularJS",
-      "detectionCount": 10,
-      "domainCount": 10
-    },
-    {
-      "name": "ASP.NET",
-      "detectionCount": 10,
-      "domainCount": 10
-    },
-    {
-      "name": "Facebook Pixel",
-      "detectionCount": 10,
-      "domainCount": 10
-    },
-    {
-      "name": "lit-element",
-      "detectionCount": 10,
-      "domainCount": 10
-    },
-    {
-      "name": "lit-html",
-      "detectionCount": 10,
-      "domainCount": 10
-    },
-    {
-      "name": "MediaElement.js",
-      "detectionCount": 10,
-      "domainCount": 10
-    },
-    {
-      "name": "Wix",
-      "detectionCount": 10,
-      "domainCount": 10
-    },
-    {
-      "name": "Akamai Bot Manager",
-      "detectionCount": 9,
-      "domainCount": 9
-    },
-    {
-      "name": "Google-Analytics",
-      "detectionCount": 9,
-      "domainCount": 9
-    },
-    {
-      "name": "MailChimp",
-      "detectionCount": 9,
-      "domainCount": 9
-    },
-    {
-      "name": "Microsoft IIS",
-      "detectionCount": 9,
-      "domainCount": 9
-    },
-    {
-      "name": "Site Kit",
-      "detectionCount": 9,
-      "domainCount": 9
-    },
-    {
-      "name": "TypeScript",
-      "detectionCount": 9,
-      "domainCount": 9
-    },
-    {
-      "name": "Animate.css",
-      "detectionCount": 8,
-      "domainCount": 8
-    },
-    {
-      "name": "Express",
-      "detectionCount": 8,
-      "domainCount": 8
-    },
-    {
-      "name": "LazySizes",
-      "detectionCount": 8,
-      "domainCount": 8
-    },
-    {
-      "name": "Sectigo",
-      "detectionCount": 8,
-      "domainCount": 8
-    },
-    {
-      "name": "Select2",
-      "detectionCount": 8,
-      "domainCount": 8
-    },
-    {
-      "name": "Slider Revolution",
-      "detectionCount": 8,
-      "domainCount": 8
-    },
-    {
-      "name": "Stimulus",
-      "detectionCount": 8,
-      "domainCount": 8
-    },
-    {
-      "name": "Typekit",
-      "detectionCount": 8,
-      "domainCount": 8
-    },
-    {
-      "name": "WhatsApp Business Chat",
-      "detectionCount": 8,
-      "domainCount": 8
-    },
-    {
-      "name": "Cloudflare Turnstile",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "FancyBox",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "Microsoft ASP.NET",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "RequireJS",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "Squarespace",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "Squarespace Commerce",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "Vimeo",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "Wix eCommerce",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "WooCommerce",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "wpBakery",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "YUI",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "Zone.js",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "Astra",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Babel",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "CookieYes",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Divi",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Facebook Login",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Hammer.js",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Hello Elementor",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Leaflet",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Livefyre",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Microsoft Advertising",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Moment.js",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Popper",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Snowplow Analytics",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Vue.js",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "WP Engine",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
-      "name": "Akamai mPulse",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "Amazon S3",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "Apple iCloud Mail",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "Boomerang",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "Firebase",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "Kinsta",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "Microsoft Clarity",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "MonsterInsights",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "OneTrust",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "PayPal",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "PhotoSwipe",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "TYPO3 CMS",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "Weebly",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "WP Fastest Cache",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "Adobe Experience Platform Identity Service",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "Adobe Experience Platform Launch",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "ASP_NET",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "Dropzone",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "Flickity",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "Hostinger",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "IIS",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "Linkedin Insight Tag",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "Magento",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "Preact",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "Windows Server",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "WPForms",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "Adobe Client Data Layer",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Akamai-Global-Host",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Akismet",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "anime.js",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Aruba.it",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Atlassian Jira",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Chart.js",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Cloudflare Browser Insights",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "DreamWeaver",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Drupal",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Formidable Form",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "GoDaddy CoBlocks",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Google Ads Conversion Tracking",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Gravity Forms",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "IONOS",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Java",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Jetpack",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "jQuery CDN",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "LaunchDarkly",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Mailchimp",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "MailChimp for WordPress",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Matomo Analytics",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Microsoft Internet Explorer",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Mustache",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "New Relic",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Node.js",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "OVHcloud",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Plesk",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "RankMath SEO",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Salesforce",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Sendgrid",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "SendGrid",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Strato",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Unpkg",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "UPS",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "VideoJS",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "web-vitals",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Webflow",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "ZURB Foundation",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Adobe Analytics",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Adobe Experience Manager",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Amazon Advertising",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "AMP",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "AOS",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Apple Pay",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Bluehost",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Bootstrap Icons",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Bunny",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Bunny Fonts",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Calendly",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Complianz",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Datadog",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Duda",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "ElementsKit",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Facebook Chat Plugin",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "FullCalendar",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Glide.js",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "GoDaddy Website Builder",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Google AdSense",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Google Pay",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "GraphQL",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Gutenberg",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Handlebars",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Hostgator",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Hotjar",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "jQuery Mobile",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Kadence WP Blocks",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Kadence WP Kadence",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Linkedin Ads",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Linkedin Sign-in",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "LottieFiles",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Mailgun",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "MobX",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "MyWebsite",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "MyWebsite Creator",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Next.js",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "OceanWP",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Polylang",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "prettyPhoto",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "React Redux",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Redux",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Shop Pay",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Shopify",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "SiteGround",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "SiteOrigin Page Builder",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "SiteOrigin Widgets Bundle",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Smash Balloon Instagram Feed",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "SWFObject",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "The SEO Framework",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "TikTok Pixel",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "toastr",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "TrackJs",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "UIKit",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Umbraco",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "UNIX",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Usercentrics",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "UserWay",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Vercel",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "WordPress Multisite",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "Yandex.Metrika",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "1&1 Hosting",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "AccessiBe",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Acquia Cloud Platform",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Acquia Cloud Site Factory",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "ActiveX",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Adobe Flash",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Adobe-Experience-Manager",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Advanced Custom Fields",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Ahrefs",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Akamai Web Application Protector",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Alibaba Cloud CDN",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "ALL-INKL",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Amazon Webstore",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "American Express",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Attentive",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "AudioEye",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Auth0",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "AWIN",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Azure",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Backdrop",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Bold Themes",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Bookly",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Braze",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Breakdance",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Bricks",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Caddy",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Catch Themes Catch Box",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "CivicTheme",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Clipboard.js",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "CloudFront",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Cloudimage",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Colorlib Sparkling",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Constant Contact",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Contentful",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Contentsquare",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Cookie Information",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Cookie Information plugin",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Cookie Notice",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Cookiebot",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Cowboy",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Crocoblock JetElements",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Cryout Creations Parabola",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Cufon",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "DataTables",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "DemandWare eCommerce System",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "DoubleClick Ad Exchange (AdX)",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Drupal Multisite",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Elementor Cloud",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Elementor Header & Footer Builder",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Elfsight",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Emotion",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Etracker",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "eWAY Payments",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Fastly",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "FlexSlider",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Flywheel",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Friendly Captcha",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Gatsby",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "GenerateBlocks",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "GeneratePress",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "GoCache",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "GoDaddy Domain Parking",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Google My Business",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Google PageSpeed",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Google Sign-in",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Gravatar",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Gunicorn",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Helix Ultimate",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Hostpoint",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "HubSpot",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "HubSpot Analytics",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "HubSpot CMS Hub",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "HubSpot Cookie Policy Banner",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Ionicons",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "iubenda",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Joomla",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "jQuery-pjax",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Kaira Vogue",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Kaltura",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Klaviyo",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Less",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "libphonenumber",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "LinkedIn Insight Tag",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "List.js",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Mailjet",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Marko",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Mastercard",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "MetaSlider",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Microsoft Word",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Monetate",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Moove GDPR Consent",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "MUI",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Netlify",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Nuxt.js",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Odoo",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Ometria",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "One.com",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Optimizely",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "parcel",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Pendo",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "PIXIjs",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Plaid",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Plausible",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Plyr",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Popup Maker",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "PostgreSQL",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Premio Chaty",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "ProfilePress",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "ProvenExpert",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "PubSubJS",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Python",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Recent Posts Widget With Thumbnails",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Reddit Ads",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Redux Framework",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Rich Plugins Reviews",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Ruby",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Ruby on Rails",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Sakura Internet",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Salesforce Commerce Cloud",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Salesforce Interaction Studio",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Segment",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Semplice",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Seravo",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "ShareThis",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "ShopGold",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Shopware",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Simpli.fi",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Siteimprove",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "SoundManager",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Spotify Widgets",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Square Online",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Stripe",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "styled-components",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Sucuri",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Survicate",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "SWC",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "SweetAlert2",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Symfony",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Taboola",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Teads",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "theTradeDesk",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Three.js",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Tiny Slider",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "TinyMCE",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Tippy.js",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Trusted Shops",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Trustpilot",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Turbo",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Twenty Seventeen",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Twenty Twelve",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Twenty Twenty-One",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Twitch Player",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Twitter",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Twitter Ads",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Twitter typeahead.js",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Ubuntu",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "UKFast",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "USPS",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "VentraIP",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Virtuous",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Visa",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "WebFactory Maintenance",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Webflow Ecommerce",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "WebNode",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "WEN Themes Signify Dark",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "World4You",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "WP Rocket",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "WP-PageNavi",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Xserver",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Yodel",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Zendesk",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Zoho",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Zotabox",
-      "detectionCount": 1,
-      "domainCount": 1
-    }
-  ],
-  "technologiesCanonical": [
-    {
-      "name": "jQuery",
-      "detectionCount": 221,
-      "domainCount": 120
-    },
-    {
-      "name": "Google Fonts",
-      "detectionCount": 140,
-      "domainCount": 85
-    },
-    {
-      "name": "Open Graph",
-      "detectionCount": 109,
-      "domainCount": 109
-    },
-    {
-      "name": "Let's Encrypt",
-      "detectionCount": 108,
-      "domainCount": 108
-    },
-    {
-      "name": "PHP",
-      "detectionCount": 98,
-      "domainCount": 98
-    },
-    {
-      "name": "Cloudflare",
-      "detectionCount": 81,
-      "domainCount": 81
-    },
-    {
-      "name": "MySQL",
-      "detectionCount": 80,
-      "domainCount": 80
+      "detectionCount": 66,
+      "domainCount": 66
     },
     {
       "name": "Google Analytics",
-      "detectionCount": 76,
-      "domainCount": 67
-    },
-    {
-      "name": "Nginx",
-      "detectionCount": 73,
-      "domainCount": 73
-    },
-    {
-      "name": "WordPress",
-      "detectionCount": 73,
-      "domainCount": 73
-    },
-    {
-      "name": "HTTP/3",
-      "detectionCount": 72,
-      "domainCount": 72
-    },
-    {
-      "name": "Priority Hints",
-      "detectionCount": 71,
-      "domainCount": 71
-    },
-    {
-      "name": "RSS",
-      "detectionCount": 69,
-      "domainCount": 69
-    },
-    {
-      "name": "jQuery Migrate",
-      "detectionCount": 68,
-      "domainCount": 68
-    },
-    {
-      "name": "Google Tag Manager",
-      "detectionCount": 64,
-      "domainCount": 64
+      "detectionCount": 65,
+      "domainCount": 65
     },
     {
       "name": "core-js",
-      "detectionCount": 63,
-      "domainCount": 63
+      "detectionCount": 62,
+      "domainCount": 62
     },
     {
       "name": "Cart Functionality",
@@ -2182,31 +94,26 @@
     },
     {
       "name": "HSTS",
-      "detectionCount": 56,
-      "domainCount": 56
-    },
-    {
-      "name": "Apache HTTP Server",
       "detectionCount": 54,
       "domainCount": 54
     },
     {
+      "name": "Apache HTTP Server",
+      "detectionCount": 53,
+      "domainCount": 53
+    },
+    {
       "name": "reCAPTCHA",
-      "detectionCount": 48,
-      "domainCount": 48
+      "detectionCount": 47,
+      "domainCount": 47
     },
     {
-      "name": "Webpack",
-      "detectionCount": 48,
-      "domainCount": 48
-    },
-    {
-      "name": "Amazon CloudFront",
+      "name": "CDN / edge",
       "detectionCount": 45,
       "domainCount": 45
     },
     {
-      "name": "CDN / edge",
+      "name": "Amazon CloudFront",
       "detectionCount": 44,
       "domainCount": 44
     },
@@ -2216,14 +123,14 @@
       "domainCount": 43
     },
     {
-      "name": "Module Federation",
-      "detectionCount": 41,
-      "domainCount": 41
+      "name": "Font Awesome",
+      "detectionCount": 40,
+      "domainCount": 40
     },
     {
       "name": "Varnish",
-      "detectionCount": 39,
-      "domainCount": 39
+      "detectionCount": 40,
+      "domainCount": 40
     },
     {
       "name": "Google Maps",
@@ -2232,8 +139,8 @@
     },
     {
       "name": "Lodash",
-      "detectionCount": 37,
-      "domainCount": 37
+      "detectionCount": 36,
+      "domainCount": 36
     },
     {
       "name": "Yoast SEO",
@@ -2241,29 +148,34 @@
       "domainCount": 36
     },
     {
+      "name": "Bootstrap",
+      "detectionCount": 35,
+      "domainCount": 35
+    },
+    {
       "name": "jQuery UI",
       "detectionCount": 34,
       "domainCount": 34
     },
     {
-      "name": "Bootstrap",
-      "detectionCount": 32,
-      "domainCount": 32
-    },
-    {
       "name": "Swiper",
-      "detectionCount": 32,
-      "domainCount": 32
+      "detectionCount": 33,
+      "domainCount": 33
     },
     {
-      "name": "Font Awesome",
+      "name": "DoubleClick Floodlight",
+      "detectionCount": 31,
+      "domainCount": 31
+    },
+    {
+      "name": "React",
       "detectionCount": 30,
       "domainCount": 30
     },
     {
       "name": "Microsoft 365",
-      "detectionCount": 30,
-      "domainCount": 30
+      "detectionCount": 29,
+      "domainCount": 29
     },
     {
       "name": "Google Workspace",
@@ -2282,18 +194,13 @@
     },
     {
       "name": "GoDaddy",
-      "detectionCount": 26,
-      "domainCount": 26
-    },
-    {
-      "name": "Meta Pixel",
-      "detectionCount": 26,
-      "domainCount": 19
-    },
-    {
-      "name": "React",
       "detectionCount": 25,
       "domainCount": 25
+    },
+    {
+      "name": "Amazon Web Services",
+      "detectionCount": 24,
+      "domainCount": 24
     },
     {
       "name": "Contact Form 7",
@@ -2306,22 +213,37 @@
       "domainCount": 19
     },
     {
-      "name": "Akamai",
-      "detectionCount": 16,
-      "domainCount": 14
+      "name": "Masonry",
+      "detectionCount": 19,
+      "domainCount": 19
     },
     {
-      "name": "Amazon Web Services",
-      "detectionCount": 16,
-      "domainCount": 16
+      "name": "imagesLoaded",
+      "detectionCount": 18,
+      "domainCount": 18
     },
     {
-      "name": "Isotope",
-      "detectionCount": 16,
-      "domainCount": 16
+      "name": "LiteSpeed",
+      "detectionCount": 17,
+      "domainCount": 17
+    },
+    {
+      "name": "Meta Pixel",
+      "detectionCount": 17,
+      "domainCount": 17
     },
     {
       "name": "OpenResty",
+      "detectionCount": 17,
+      "domainCount": 17
+    },
+    {
+      "name": "WordPress Block Editor",
+      "detectionCount": 17,
+      "domainCount": 17
+    },
+    {
+      "name": "Isotope",
       "detectionCount": 16,
       "domainCount": 16
     },
@@ -2351,6 +273,11 @@
       "domainCount": 14
     },
     {
+      "name": "Akamai",
+      "detectionCount": 13,
+      "domainCount": 13
+    },
+    {
       "name": "cdnjs",
       "detectionCount": 13,
       "domainCount": 13
@@ -2376,9 +303,14 @@
       "domainCount": 13
     },
     {
-      "name": "LiteSpeed",
+      "name": "parallax.js",
       "detectionCount": 13,
       "domainCount": 13
+    },
+    {
+      "name": "Magnific Popup",
+      "detectionCount": 12,
+      "domainCount": 12
     },
     {
       "name": "OWL Carousel",
@@ -2386,9 +318,9 @@
       "domainCount": 12
     },
     {
-      "name": "PWA",
-      "detectionCount": 12,
-      "domainCount": 12
+      "name": "ASP.NET",
+      "detectionCount": 11,
+      "domainCount": 11
     },
     {
       "name": "Google Cloud",
@@ -2401,17 +333,17 @@
       "domainCount": 11
     },
     {
+      "name": "PWA",
+      "detectionCount": 11,
+      "domainCount": 11
+    },
+    {
       "name": "YouTube",
       "detectionCount": 11,
       "domainCount": 11
     },
     {
       "name": "AngularJS",
-      "detectionCount": 10,
-      "domainCount": 10
-    },
-    {
-      "name": "ASP.NET",
       "detectionCount": 10,
       "domainCount": 10
     },
@@ -2431,17 +363,27 @@
       "domainCount": 10
     },
     {
+      "name": "Sirvoy",
+      "detectionCount": 10,
+      "domainCount": 10
+    },
+    {
+      "name": "WebsiteBuilder",
+      "detectionCount": 10,
+      "domainCount": 10
+    },
+    {
       "name": "Wix",
       "detectionCount": 10,
       "domainCount": 10
     },
     {
-      "name": "Akamai Bot Manager",
-      "detectionCount": 9,
-      "domainCount": 9
+      "name": "Wix eCommerce",
+      "detectionCount": 10,
+      "domainCount": 10
     },
     {
-      "name": "MailChimp",
+      "name": "Mailchimp",
       "detectionCount": 9,
       "domainCount": 9
     },
@@ -2461,6 +403,21 @@
       "domainCount": 9
     },
     {
+      "name": "Adobe Fonts",
+      "detectionCount": 8,
+      "domainCount": 8
+    },
+    {
+      "name": "Akamai Bot Manager",
+      "detectionCount": 8,
+      "domainCount": 8
+    },
+    {
+      "name": "Amazon S3",
+      "detectionCount": 8,
+      "domainCount": 8
+    },
+    {
       "name": "Animate.css",
       "detectionCount": 8,
       "domainCount": 8
@@ -2471,7 +428,7 @@
       "domainCount": 8
     },
     {
-      "name": "LazySizes",
+      "name": "FitVids.JS",
       "detectionCount": 8,
       "domainCount": 8
     },
@@ -2501,9 +458,14 @@
       "domainCount": 8
     },
     {
-      "name": "WhatsApp Business Chat",
+      "name": "WOW",
       "detectionCount": 8,
       "domainCount": 8
+    },
+    {
+      "name": "Afterpay",
+      "detectionCount": 7,
+      "domainCount": 7
     },
     {
       "name": "Cloudflare Turnstile",
@@ -2516,7 +478,12 @@
       "domainCount": 7
     },
     {
-      "name": "Microsoft ASP.NET",
+      "name": "LazySizes",
+      "detectionCount": 7,
+      "domainCount": 7
+    },
+    {
+      "name": "Really Simple SSL & Security",
       "detectionCount": 7,
       "domainCount": 7
     },
@@ -2536,12 +503,17 @@
       "domainCount": 7
     },
     {
+      "name": "Statsig",
+      "detectionCount": 7,
+      "domainCount": 7
+    },
+    {
       "name": "Vimeo",
       "detectionCount": 7,
       "domainCount": 7
     },
     {
-      "name": "Wix eCommerce",
+      "name": "Webpack",
       "detectionCount": 7,
       "domainCount": 7
     },
@@ -2576,11 +548,6 @@
       "domainCount": 6
     },
     {
-      "name": "CookieYes",
-      "detectionCount": 6,
-      "domainCount": 6
-    },
-    {
       "name": "Divi",
       "detectionCount": 6,
       "domainCount": 6
@@ -2611,7 +578,7 @@
       "domainCount": 6
     },
     {
-      "name": "Microsoft Advertising",
+      "name": "Microsoft ASP.NET",
       "detectionCount": 6,
       "domainCount": 6
     },
@@ -2641,22 +608,12 @@
       "domainCount": 6
     },
     {
-      "name": "Akamai mPulse",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "Amazon S3",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
       "name": "Apple iCloud Mail",
       "detectionCount": 5,
       "domainCount": 5
     },
     {
-      "name": "Boomerang",
+      "name": "CookieYes",
       "detectionCount": 5,
       "domainCount": 5
     },
@@ -2671,17 +628,7 @@
       "domainCount": 5
     },
     {
-      "name": "Microsoft Clarity",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
       "name": "MonsterInsights",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
-      "name": "OneTrust",
       "detectionCount": 5,
       "domainCount": 5
     },
@@ -2692,6 +639,11 @@
     },
     {
       "name": "PhotoSwipe",
+      "detectionCount": 5,
+      "domainCount": 5
+    },
+    {
+      "name": "Skrollr",
       "detectionCount": 5,
       "domainCount": 5
     },
@@ -2711,17 +663,17 @@
       "domainCount": 5
     },
     {
-      "name": "Adobe Experience Platform Identity Service",
+      "name": "Akamai mPulse",
       "detectionCount": 4,
       "domainCount": 4
     },
     {
-      "name": "Adobe Experience Platform Launch",
+      "name": "Boomerang",
       "detectionCount": 4,
       "domainCount": 4
     },
     {
-      "name": "ASP_NET",
+      "name": "dc.js",
       "detectionCount": 4,
       "domainCount": 4
     },
@@ -2731,7 +683,17 @@
       "domainCount": 4
     },
     {
+      "name": "Easy Pie Chart",
+      "detectionCount": 4,
+      "domainCount": 4
+    },
+    {
       "name": "Flickity",
+      "detectionCount": 4,
+      "domainCount": 4
+    },
+    {
+      "name": "Google Ads Conversion Tracking",
       "detectionCount": 4,
       "domainCount": 4
     },
@@ -2746,7 +708,7 @@
       "domainCount": 4
     },
     {
-      "name": "Linkedin Insight Tag",
+      "name": "LinkedIn Insight Tag",
       "detectionCount": 4,
       "domainCount": 4
     },
@@ -2756,12 +718,32 @@
       "domainCount": 4
     },
     {
-      "name": "Preact",
+      "name": "Microsoft Advertising",
+      "detectionCount": 4,
+      "domainCount": 4
+    },
+    {
+      "name": "Microsoft Clarity",
+      "detectionCount": 4,
+      "domainCount": 4
+    },
+    {
+      "name": "OneTrust",
+      "detectionCount": 4,
+      "domainCount": 4
+    },
+    {
+      "name": "WhatsApp Business Chat",
       "detectionCount": 4,
       "domainCount": 4
     },
     {
       "name": "Windows Server",
+      "detectionCount": 4,
+      "domainCount": 4
+    },
+    {
+      "name": "WordPress.com",
       "detectionCount": 4,
       "domainCount": 4
     },
@@ -2776,9 +758,14 @@
       "domainCount": 3
     },
     {
-      "name": "Adobe Experience Manager",
+      "name": "Adobe Experience Platform Identity Service",
       "detectionCount": 3,
-      "domainCount": 2
+      "domainCount": 3
+    },
+    {
+      "name": "Adobe Experience Platform Launch",
+      "detectionCount": 3,
+      "domainCount": 3
     },
     {
       "name": "Akismet",
@@ -2792,11 +779,6 @@
     },
     {
       "name": "Aruba.it",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Atlassian Jira",
       "detectionCount": 3,
       "domainCount": 3
     },
@@ -2816,11 +798,6 @@
       "domainCount": 3
     },
     {
-      "name": "Drupal",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
       "name": "Formidable Form",
       "detectionCount": 3,
       "domainCount": 3
@@ -2831,7 +808,7 @@
       "domainCount": 3
     },
     {
-      "name": "Google Ads Conversion Tracking",
+      "name": "Google AdSense",
       "detectionCount": 3,
       "domainCount": 3
     },
@@ -2866,17 +843,17 @@
       "domainCount": 3
     },
     {
-      "name": "Mailchimp",
+      "name": "LottieFiles",
+      "detectionCount": 3,
+      "domainCount": 3
+    },
+    {
+      "name": "Mailcheck",
       "detectionCount": 3,
       "domainCount": 3
     },
     {
       "name": "MailChimp for WordPress",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Matomo Analytics",
       "detectionCount": 3,
       "domainCount": 3
     },
@@ -2891,12 +868,7 @@
       "domainCount": 3
     },
     {
-      "name": "New Relic",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Node.js",
+      "name": "Next.js",
       "detectionCount": 3,
       "domainCount": 3
     },
@@ -2906,22 +878,22 @@
       "domainCount": 3
     },
     {
+      "name": "Piwik PRO Core",
+      "detectionCount": 3,
+      "domainCount": 3
+    },
+    {
       "name": "Plesk",
       "detectionCount": 3,
       "domainCount": 3
     },
     {
+      "name": "punycode",
+      "detectionCount": 3,
+      "domainCount": 3
+    },
+    {
       "name": "RankMath SEO",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Salesforce",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Sendgrid",
       "detectionCount": 3,
       "domainCount": 3
     },
@@ -2936,12 +908,12 @@
       "domainCount": 3
     },
     {
-      "name": "Unpkg",
+      "name": "Surge",
       "detectionCount": 3,
       "domainCount": 3
     },
     {
-      "name": "UPS",
+      "name": "Unpkg",
       "detectionCount": 3,
       "domainCount": 3
     },
@@ -2966,12 +938,17 @@
       "domainCount": 3
     },
     {
-      "name": "Adobe Analytics",
+      "name": "Adobe Experience Manager",
       "detectionCount": 2,
       "domainCount": 2
     },
     {
-      "name": "Amazon Advertising",
+      "name": "All in One SEO",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
+      "name": "All in One SEO Pack",
       "detectionCount": 2,
       "domainCount": 2
     },
@@ -2987,6 +964,16 @@
     },
     {
       "name": "Apple Pay",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
+      "name": "Atlassian Jira",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
+      "name": "Beaver Builder",
       "detectionCount": 2,
       "domainCount": 2
     },
@@ -3021,7 +1008,7 @@
       "domainCount": 2
     },
     {
-      "name": "Datadog",
+      "name": "Drupal",
       "detectionCount": 2,
       "domainCount": 2
     },
@@ -3056,11 +1043,6 @@
       "domainCount": 2
     },
     {
-      "name": "Google AdSense",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
       "name": "Google Pay",
       "detectionCount": 2,
       "domainCount": 2
@@ -3091,6 +1073,11 @@
       "domainCount": 2
     },
     {
+      "name": "Infinite Scroll",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
       "name": "jQuery Mobile",
       "detectionCount": 2,
       "domainCount": 2
@@ -3116,12 +1103,12 @@
       "domainCount": 2
     },
     {
-      "name": "LottieFiles",
+      "name": "Mailgun",
       "detectionCount": 2,
       "domainCount": 2
     },
     {
-      "name": "Mailgun",
+      "name": "Max Mega Menu",
       "detectionCount": 2,
       "domainCount": 2
     },
@@ -3141,12 +1128,27 @@
       "domainCount": 2
     },
     {
-      "name": "Next.js",
+      "name": "New Relic",
       "detectionCount": 2,
       "domainCount": 2
     },
     {
       "name": "OceanWP",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
+      "name": "Onsen UI",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
+      "name": "Optimizely",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
+      "name": "Packery",
       "detectionCount": 2,
       "domainCount": 2
     },
@@ -3161,6 +1163,16 @@
       "domainCount": 2
     },
     {
+      "name": "ProgressBar.js",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
+      "name": "Pusher",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
       "name": "React Redux",
       "detectionCount": 2,
       "domainCount": 2
@@ -3171,9 +1183,14 @@
       "domainCount": 2
     },
     {
-      "name": "Salesforce Commerce Cloud",
+      "name": "Salesforce",
       "detectionCount": 2,
-      "domainCount": 1
+      "domainCount": 2
+    },
+    {
+      "name": "scrollreveal",
+      "detectionCount": 2,
+      "domainCount": 2
     },
     {
       "name": "Shop Pay",
@@ -3216,11 +1233,6 @@
       "domainCount": 2
     },
     {
-      "name": "TikTok Pixel",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
       "name": "toastr",
       "detectionCount": 2,
       "domainCount": 2
@@ -3236,12 +1248,12 @@
       "domainCount": 2
     },
     {
-      "name": "Umbraco",
+      "name": "UNIX",
       "detectionCount": 2,
       "domainCount": 2
     },
     {
-      "name": "UNIX",
+      "name": "UPS",
       "detectionCount": 2,
       "domainCount": 2
     },
@@ -3261,7 +1273,17 @@
       "domainCount": 2
     },
     {
+      "name": "Web Font Loader",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
       "name": "WordPress Multisite",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
+      "name": "WordPress Site Editor",
       "detectionCount": 2,
       "domainCount": 2
     },
@@ -3296,6 +1318,11 @@
       "domainCount": 1
     },
     {
+      "name": "Adobe Analytics",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Adobe Flash",
       "detectionCount": 1,
       "domainCount": 1
@@ -3321,12 +1348,12 @@
       "domainCount": 1
     },
     {
-      "name": "ALL-INKL",
+      "name": "Alimama",
       "detectionCount": 1,
       "domainCount": 1
     },
     {
-      "name": "Amazon Webstore",
+      "name": "ALL-INKL",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3336,7 +1363,7 @@
       "domainCount": 1
     },
     {
-      "name": "Attentive",
+      "name": "ANS",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3366,12 +1393,27 @@
       "domainCount": 1
     },
     {
+      "name": "BeTheme",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Bitmovin",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Bold Themes",
       "detectionCount": 1,
       "domainCount": 1
     },
     {
       "name": "Bookly",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Bootbox.js",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3391,7 +1433,27 @@
       "domainCount": 1
     },
     {
+      "name": "Brizy",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "bxSlider",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Caddy",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Canyon",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "CARTO Analytics",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3401,7 +1463,12 @@
       "domainCount": 1
     },
     {
-      "name": "CivicTheme",
+      "name": "CFML",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Chaty",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3437,6 +1504,16 @@
     },
     {
       "name": "Contentsquare",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "ContentViews",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Cookie Control",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3481,7 +1558,27 @@
       "domainCount": 1
     },
     {
+      "name": "Cybot",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Datadog",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "DataTables",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Directorist",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "DISH",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3512,6 +1609,11 @@
     },
     {
       "name": "Emotion",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Essential Blocks",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3601,7 +1703,17 @@
       "domainCount": 1
     },
     {
+      "name": "HeroUI",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Hostpoint",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Htmx",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3626,12 +1738,32 @@
       "domainCount": 1
     },
     {
+      "name": "Humblytics",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Instagram Feed for WordPress",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Ionicons",
       "detectionCount": 1,
       "domainCount": 1
     },
     {
       "name": "iubenda",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "JetTabs",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Joinchat",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3651,11 +1783,6 @@
       "domainCount": 1
     },
     {
-      "name": "Kaltura",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
       "name": "Klaviyo",
       "detectionCount": 1,
       "domainCount": 1
@@ -3671,12 +1798,12 @@
       "domainCount": 1
     },
     {
-      "name": "LinkedIn Insight Tag",
+      "name": "List.js",
       "detectionCount": 1,
       "domainCount": 1
     },
     {
-      "name": "List.js",
+      "name": "LiteSpeed Cache",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3696,12 +1823,27 @@
       "domainCount": 1
     },
     {
+      "name": "Material UI",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Matter.js",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "MetaSlider",
       "detectionCount": 1,
       "domainCount": 1
     },
     {
       "name": "Microsoft Word",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Mixitup",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3716,6 +1858,11 @@
       "domainCount": 1
     },
     {
+      "name": "Morphext",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "MUI",
       "detectionCount": 1,
       "domainCount": 1
@@ -3726,7 +1873,17 @@
       "domainCount": 1
     },
     {
-      "name": "Nuxt.js",
+      "name": "NightsBridge",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Node.js",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "NProgress",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3746,7 +1903,7 @@
       "domainCount": 1
     },
     {
-      "name": "Optimizely",
+      "name": "p5.js",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3791,6 +1948,11 @@
       "domainCount": 1
     },
     {
+      "name": "PostHog",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Premio Chaty",
       "detectionCount": 1,
       "domainCount": 1
@@ -3816,12 +1978,12 @@
       "domainCount": 1
     },
     {
-      "name": "Recent Posts Widget With Thumbnails",
+      "name": "React Router",
       "detectionCount": 1,
       "domainCount": 1
     },
     {
-      "name": "Reddit Ads",
+      "name": "Recent Posts Widget With Thumbnails",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3831,7 +1993,17 @@
       "domainCount": 1
     },
     {
+      "name": "Retina.js",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Rich Plugins Reviews",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "RomanCart",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3851,11 +2023,6 @@
       "domainCount": 1
     },
     {
-      "name": "Salesforce Interaction Studio",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
       "name": "Segment",
       "detectionCount": 1,
       "domainCount": 1
@@ -3871,11 +2038,6 @@
       "domainCount": 1
     },
     {
-      "name": "ShareThis",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
       "name": "ShopGold",
       "detectionCount": 1,
       "domainCount": 1
@@ -3886,7 +2048,7 @@
       "domainCount": 1
     },
     {
-      "name": "Simpli.fi",
+      "name": "sidr",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3896,7 +2058,17 @@
       "domainCount": 1
     },
     {
+      "name": "SnatchBot",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "SoundManager",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Spin.js",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3907,6 +2079,11 @@
     },
     {
       "name": "Square Online",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Storyly",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3931,6 +2108,11 @@
       "domainCount": 1
     },
     {
+      "name": "Svelte",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "SWC",
       "detectionCount": 1,
       "domainCount": 1
@@ -3951,17 +2133,17 @@
       "domainCount": 1
     },
     {
-      "name": "Teads",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "theTradeDesk",
+      "name": "Tanx",
       "detectionCount": 1,
       "domainCount": 1
     },
     {
       "name": "Three.js",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "TikTok Pixel",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -3977,6 +2159,16 @@
     },
     {
       "name": "Tippy.js",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Trident AB",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Trovo",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -4006,6 +2198,11 @@
       "domainCount": 1
     },
     {
+      "name": "Twenty Twenty-Four",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Twenty Twenty-One",
       "detectionCount": 1,
       "domainCount": 1
@@ -4031,6 +2228,11 @@
       "domainCount": 1
     },
     {
+      "name": "Typed.js",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Ubuntu",
       "detectionCount": 1,
       "domainCount": 1
@@ -4041,7 +2243,7 @@
       "domainCount": 1
     },
     {
-      "name": "USPS",
+      "name": "Umbraco",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -4057,6 +2259,11 @@
     },
     {
       "name": "Visa",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Web4Realty",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -4081,6 +2288,11 @@
       "domainCount": 1
     },
     {
+      "name": "Woodmart",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "World4You",
       "detectionCount": 1,
       "domainCount": 1
@@ -4096,17 +2308,12 @@
       "domainCount": 1
     },
     {
+      "name": "X-Clacks-Overhead",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Xserver",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Yodel",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Zendesk",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -4120,141 +2327,5 @@
       "detectionCount": 1,
       "domainCount": 1
     }
-  ],
-  "similarNameGroups": [
-    [
-      "jQuery",
-      "JQuery",
-      "jQuery CDN",
-      "jQuery Migrate",
-      "jQuery Mobile",
-      "jQuery UI"
-    ],
-    [
-      "Akamai",
-      "Akamai Bot Manager",
-      "Akamai mPulse",
-      "Akamai Web Application Protector"
-    ],
-    [
-      "Cloudflare",
-      "Cloudflare Bot Management",
-      "Cloudflare Browser Insights",
-      "Cloudflare Turnstile"
-    ],
-    [
-      "GoDaddy",
-      "GoDaddy CoBlocks",
-      "GoDaddy Domain Parking",
-      "GoDaddy Website Builder"
-    ],
-    [
-      "HubSpot",
-      "HubSpot Analytics",
-      "HubSpot CMS Hub",
-      "HubSpot Cookie Policy Banner"
-    ],
-    [
-      "Twitter",
-      "Twitter Ads",
-      "Twitter Emoji (Twemoji)",
-      "Twitter typeahead.js"
-    ],
-    [
-      "Elementor",
-      "Elementor Cloud",
-      "Elementor Header & Footer Builder"
-    ],
-    [
-      "Mailchimp",
-      "MailChimp",
-      "MailChimp for WordPress"
-    ],
-    [
-      "Preact",
-      "React",
-      "React Redux"
-    ],
-    [
-      "Salesforce",
-      "Salesforce Commerce Cloud",
-      "Salesforce Interaction Studio"
-    ],
-    [
-      "Adobe Experience Manager",
-      "Adobe-Experience-Manager"
-    ],
-    [
-      "ASP_NET",
-      "ASP.NET"
-    ],
-    [
-      "Bootstrap",
-      "Bootstrap Icons"
-    ],
-    [
-      "Bunny",
-      "Bunny Fonts"
-    ],
-    [
-      "Cookie Information",
-      "Cookie Information plugin"
-    ],
-    [
-      "Drupal",
-      "Drupal Multisite"
-    ],
-    [
-      "Google Ads",
-      "Google Ads Conversion Tracking"
-    ],
-    [
-      "Google Analytics",
-      "Google-Analytics"
-    ],
-    [
-      "Google Cloud",
-      "Google Cloud CDN"
-    ],
-    [
-      "Linkedin Insight Tag",
-      "LinkedIn Insight Tag"
-    ],
-    [
-      "MyWebsite",
-      "MyWebsite Creator"
-    ],
-    [
-      "Next.js",
-      "Nuxt.js"
-    ],
-    [
-      "Redux",
-      "Redux Framework"
-    ],
-    [
-      "Ruby",
-      "Ruby on Rails"
-    ],
-    [
-      "Sendgrid",
-      "SendGrid"
-    ],
-    [
-      "Squarespace",
-      "Squarespace Commerce"
-    ],
-    [
-      "UPS",
-      "USPS"
-    ],
-    [
-      "Webflow",
-      "Webflow Ecommerce"
-    ],
-    [
-      "WordPress",
-      "WordPress Multisite"
-    ]
   ]
 }

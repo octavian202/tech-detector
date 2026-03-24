@@ -69,6 +69,28 @@ function namesLookSimilar(a, b) {
   return false
 }
 
+/**
+ * For **merging aggregate counts** only: no “prefix + space” rule (avoids React vs React Native).
+ * Slightly stricter Levenshtein than `namesLookSimilar`.
+ */
+function namesLookSimilarForMerge(a, b) {
+  const na = normalizeName(a)
+  const nb = normalizeName(b)
+  if (!na || !nb) return false
+  if (na === nb) return true
+
+  const maxL = Math.max(na.length, nb.length)
+  if (maxL <= 3) return false
+
+  const lev = levenshtein(na, nb)
+  const bothMultiWord = na.includes(' ') && nb.includes(' ')
+  const scale = bothMultiWord ? 0.12 : 0.18
+  const maxLev = Math.min(2, Math.max(1, Math.floor(maxL * scale)))
+  if (lev <= maxLev) return true
+  if (maxL > 14 && lev / maxL <= 0.11) return true
+  return false
+}
+
 class UnionFind {
   constructor(n) {
     this.p = Array.from({ length: n }, (_, i) => i)
@@ -190,6 +212,126 @@ function aggregateCanonicalCounts(data) {
   return { counts, domainsByName }
 }
 
+/**
+ * Alias-uri (merge-technologies) + același nume indiferent de majuscule → o singură intrare,
+ * cu reuniune de domenii (domainCount corect, fără dublare la același site).
+ *
+ * @returns {Array<{ name: string, detectionCount: number, domainCount: number, domains: Set<string> }>}
+ */
+function aggregateCaseFoldedCanonical(data) {
+  /** @type {Map<string, { count: number, domains: Set<string>, variants: Map<string, number> }>} */
+  const byLower = new Map()
+
+  for (const row of data) {
+    const domain = row?.domain != null ? String(row.domain) : ''
+    const techs = Array.isArray(row?.technologies) ? row.technologies : []
+    for (const t of techs) {
+      const raw = t?.name != null && t.name !== '' ? String(t.name) : '(unnamed)'
+      const canon = canonicalTechName(raw) || raw.trim()
+      const key = canon === '(unnamed)' ? '(unnamed)' : canon.toLowerCase()
+      if (!byLower.has(key)) {
+        byLower.set(key, {
+          count: 0,
+          domains: new Set(),
+          variants: new Map(),
+        })
+      }
+      const b = byLower.get(key)
+      b.count += 1
+      if (domain) {
+        b.domains.add(domain)
+      }
+      b.variants.set(canon, (b.variants.get(canon) || 0) + 1)
+    }
+  }
+
+  const items = []
+  for (const [key, b] of byLower) {
+    let displayName = key
+    let maxV = 0
+    for (const [variant, c] of b.variants) {
+      if (c > maxV || (c === maxV && String(variant).length > displayName.length)) {
+        maxV = c
+        displayName = variant
+      }
+    }
+    items.push({
+      name: displayName,
+      detectionCount: b.count,
+      domainCount: b.domains.size,
+      domains: b.domains,
+    })
+  }
+  return items
+}
+
+/**
+ * Union-find pe nume după `namesLookSimilarForMerge`; însumează detecții și reuniune de domenii.
+ *
+ * @param {Array<{ name: string, detectionCount: number, domainCount: number, domains: Set<string> }>} items
+ * @returns {{ list: Array<{ name: string, detectionCount: number, domainCount: number }>, distinctBefore: number, distinctAfter: number }}
+ */
+function mergeSimilarReportingItems(items) {
+  const names = items.map((i) => i.name)
+  const n = names.length
+  const uf = new UnionFind(n)
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      if (namesLookSimilarForMerge(names[i], names[j])) {
+        uf.union(i, j)
+      }
+    }
+  }
+
+  const roots = new Map()
+  for (let i = 0; i < n; i++) {
+    const r = uf.find(i)
+    if (!roots.has(r)) {
+      roots.set(r, [])
+    }
+    roots.get(r).push(items[i])
+  }
+
+  const list = []
+  for (const group of roots.values()) {
+    const domains = new Set()
+    let detectionCount = 0
+    /** @type {Map<string, number>} */
+    const weightByName = new Map()
+    for (const g of group) {
+      detectionCount += g.detectionCount
+      for (const d of g.domains) {
+        domains.add(d)
+      }
+      weightByName.set(g.name, (weightByName.get(g.name) || 0) + g.detectionCount)
+    }
+    let repName = group[0].name
+    let maxW = -1
+    for (const [nm, w] of weightByName) {
+      if (w > maxW || (w === maxW && nm.localeCompare(repName) < 0)) {
+        maxW = w
+        repName = nm
+      }
+    }
+    list.push({
+      name: repName,
+      detectionCount,
+      domainCount: domains.size,
+    })
+  }
+
+  list.sort(
+    (a, b) =>
+      b.detectionCount - a.detectionCount || a.name.localeCompare(b.name)
+  )
+
+  return {
+    list,
+    distinctBefore: items.length,
+    distinctAfter: list.length,
+  }
+}
+
 function findSimilarNameGroups(names) {
   const list = [...names].sort((a, b) => a.localeCompare(b))
   const n = list.length
@@ -272,29 +414,24 @@ function main() {
     canonicalAgg.domainsByName
   )
 
+  const foldedItems = aggregateCaseFoldedCanonical(data)
+  const mergedReporting = mergeSimilarReportingItems(foldedItems)
+
   const similarGroups = findSimilarNameGroups(uniqueTechNames)
 
-  const result = {
-    meta: {
-      generatedAt: new Date().toISOString(),
-      inputPath: path.resolve(inputPath),
-      outputPath: path.resolve(outputPath),
-    },
+  /** Fișier de output: doar tehnologii distincte (canonical NAME_ALIASES + fold case + merge similitudine). */
+  const outputPayload = {
     summary: {
       domainCount: data.length,
       domainsWithAtLeastOneTechnology: data.length - domainsWithNoTechnologies,
       domainsWithZeroTechnologies: domainsWithNoTechnologies,
       totalTechnologyDetections: totalDetections,
-      distinctTechnologyNamesRaw: uniqueTechNames.size,
-      distinctTechnologyNamesCanonical: canonicalAgg.counts.size,
+      distinctTechnologyCount: mergedReporting.distinctAfter,
     },
-    fieldStats,
-    technologies: technologiesSorted,
-    technologiesCanonical: technologiesCanonicalSorted,
-    similarNameGroups: similarGroups,
+    technologies: mergedReporting.list,
   }
 
-  fs.writeFileSync(outputPath, JSON.stringify(result, null, 2), 'utf8')
+  fs.writeFileSync(outputPath, JSON.stringify(outputPayload, null, 2), 'utf8')
 
   console.log(`Written: ${path.resolve(outputPath)}\n`)
   console.log('=== wappalyzer-results summary ===\n')
@@ -339,9 +476,21 @@ function main() {
   console.log(
     `Distinct technology names (across all domains): ${uniqueTechNames.size}`
   )
+  console.log(
+    `(consolă) După doar aliasuri NAME_ALIASES: ${canonicalAgg.counts.size} nume`
+  )
+  console.log(
+    `După alias + fold case: ${foldedItems.length} nume distincte`
+  )
+  console.log(
+    `După + merge similitudine → scris în fișier ca distinctTechnologyCount: ${mergedReporting.distinctAfter} (reduse față de fold cu ${mergedReporting.distinctBefore - mergedReporting.distinctAfter})`
+  )
+  console.log(
+    'Fișierul JSON: doar `technologies` (distincte canonice) + `summary`.'
+  )
   console.log('')
 
-  console.log('--- Nume foarte similare (grupuri euristice) ---')
+  console.log('--- (doar consolă) Nume foarte similare în date brute ---')
   console.log(
     'Reguli: același text după normalizare (ex. diferențe de majuscule); prefix “Nume …” (ex. părinte–copil); distanță Levenshtein mică (prag mai strict dacă ambele nume au mai multe cuvinte).'
   )

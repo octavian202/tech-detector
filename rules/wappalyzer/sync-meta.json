@@ -1,4 +1,9 @@
 {
-  "syncedAt": 1774285954703,
-  "source": "https://raw.githubusercontent.com/dochne/wappalyzer/main/src"
+  "syncedAt": 1774375019994,
+  "source": "https://raw.githubusercontent.com/enthec/webappanalyzer/main/src",
+  "mergedFrom": [
+    "https://raw.githubusercontent.com/HTTPArchive/wappalyzer/main/src",
+    "https://raw.githubusercontent.com/dochne/wappalyzer/main/src"
+  ],
+  "mergeDigest": 1
 }
