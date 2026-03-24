@@ -8,6 +8,7 @@
     "postinstall": "node node_modules/puppeteer/install.mjs && node scripts/patch-wappalyzer-scroll.js && node scripts/patch-wappalyzer-viewport.js",
     "install-chromium": "node node_modules/puppeteer/install.mjs",
     "start": "node index.js",
+    "analyze-output": "node analyze-output.js",
     "sync-webanalyzer": "node -e \"require('./lib/webanalyzer-sync').syncWebanalyzerRules().then(r=>console.log('Synced',r.length,'technologies'))\""
   },
   "engines": {

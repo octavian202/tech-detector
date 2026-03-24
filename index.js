@@ -21,7 +21,7 @@ const Wappalyzer = require('wappalyzer')
 const { analyzeDns } = require('./lib/dns-analysis')
 const { analyzeRobots } = require('./lib/robots-analysis')
 const { analyzeSsl } = require('./lib/ssl-analysis')
-const { analyzeDynamicDetailed } = require('./lib/dynamic-analysis')
+const { analyzeDynamicBatch } = require('./lib/dynamic-analysis')
 const { analyzeHiddenSurfaces } = require('./lib/hidden-analysis')
 const { scanSignals } = require('./lib/signal-scanners')
 const { runWhatWeb, isWhatWebAvailable } = require('./lib/whatweb-worker')
@@ -44,7 +44,7 @@ const {
 
 const DEFAULT_INPUT = 'domains.snappy.parquet'
 const DEFAULT_OUTPUT = 'output.json'
-const CONCURRENCY = 10
+const CONCURRENCY = 12
 
 /** Puppeteer / Wappalyzer navigation & script budget (lazy trackers, hydration). */
 const WAPPALYZER_MAX_WAIT_MS = 45_000
@@ -56,9 +56,12 @@ const HTML_FETCH_MS = 22_000
 const MAX_EXTRA_WAPPALYZER_URLS = 5
 /** Mobile pass: homepage + up to this many extra URLs (keep small for runtime). */
 const MAX_MOBILE_EXTRA_WAPPALYZER_URLS = 2
-/** Deep crawl dynamic pages */
+/** Deep crawl dynamic pages (single Chromium: homepage + up to N extras in series). */
 const MAX_DYNAMIC_CRAWL_URLS = 5
-const DYNAMIC_TARGET_TIMEOUT_MS = 65_000
+/** Per dynamic page (~networkidle2 + SPA waits); batch uses one browser. */
+const DYNAMIC_PAGE_TIMEOUT_MS = 32_000
+/** Whole-domain budget for the dynamic layer (all targets in one Chromium). */
+const DYNAMIC_BATCH_TIMEOUT_MS = 220_000
 /**
  * Whole-domain budget: DNS + robots + desktop (1 + MAX_EXTRA) + mobile (1 + MAX_MOBILE_EXTRA)
  * Wappalyzer runs + probes. Scroll/viewport patches in `wappalyzer` driver.
@@ -233,15 +236,14 @@ async function analyzeDomain(domain, customRules, whatwebAvailable) {
 
   const deepUrls = collectExtraWappalyzerUrls(html, url, MAX_DYNAMIC_CRAWL_URLS)
   const dynamicTargets = [url, ...deepUrls].slice(0, MAX_DYNAMIC_CRAWL_URLS + 1)
-  const dynamicResults = await Promise.all(
-    dynamicTargets.map((u) =>
-      withTimeout(
-        analyzeDynamicDetailed(u, { timeoutMs: WAPPALYZER_MAX_WAIT_MS }),
-        DYNAMIC_TARGET_TIMEOUT_MS,
-        `dynamic scan ${u}`
-      ).catch(() => ({ technologies: [], signals: { url: u } }))
-    )
-  )
+  const dynamicResults = await withTimeout(
+    analyzeDynamicBatch(dynamicTargets, {
+      perPageTimeoutMs: DYNAMIC_PAGE_TIMEOUT_MS,
+      batchTimeoutMs: DYNAMIC_BATCH_TIMEOUT_MS,
+    }),
+    DYNAMIC_BATCH_TIMEOUT_MS + 15_000,
+    'dynamic batch'
+  ).catch(() => dynamicTargets.map((u) => ({ technologies: [], signals: { url: u } })))
 
   for (const r of dynamicResults) {
     layers.push(r.technologies || [])
