@@ -1,51 +1,51 @@
 {
   "summary": {
     "domainCount": 200,
-    "domainsWithAtLeastOneTechnology": 187,
-    "domainsWithZeroTechnologies": 13,
-    "totalTechnologyDetections": 3609,
-    "distinctTechnologyCount": 464
+    "domainsWithAtLeastOneTechnology": 189,
+    "domainsWithZeroTechnologies": 11,
+    "totalTechnologyDetections": 3675,
+    "distinctTechnologyCount": 476
   },
   "technologies": [
     {
       "name": "PHP",
-      "detectionCount": 126,
-      "domainCount": 126
+      "detectionCount": 129,
+      "domainCount": 129
     },
     {
       "name": "jQuery",
-      "detectionCount": 118,
-      "domainCount": 118
-    },
-    {
-      "name": "Let's Encrypt",
-      "detectionCount": 107,
-      "domainCount": 107
+      "detectionCount": 120,
+      "domainCount": 120
     },
     {
       "name": "Open Graph",
-      "detectionCount": 107,
-      "domainCount": 107
+      "detectionCount": 109,
+      "domainCount": 109
+    },
+    {
+      "name": "Let's Encrypt",
+      "detectionCount": 108,
+      "domainCount": 108
     },
     {
       "name": "MySQL",
-      "detectionCount": 101,
-      "domainCount": 101
+      "detectionCount": 105,
+      "domainCount": 105
     },
     {
       "name": "WordPress",
-      "detectionCount": 95,
-      "domainCount": 95
+      "detectionCount": 99,
+      "domainCount": 99
     },
     {
       "name": "Google Fonts",
-      "detectionCount": 85,
-      "domainCount": 85
+      "detectionCount": 86,
+      "domainCount": 86
     },
     {
       "name": "Cloudflare",
-      "detectionCount": 80,
-      "domainCount": 80
+      "detectionCount": 79,
+      "domainCount": 79
     },
     {
       "name": "Nginx",
@@ -54,13 +54,18 @@
     },
     {
       "name": "HTTP/3",
-      "detectionCount": 71,
-      "domainCount": 71
+      "detectionCount": 72,
+      "domainCount": 72
     },
     {
       "name": "Priority Hints",
       "detectionCount": 71,
       "domainCount": 71
+    },
+    {
+      "name": "Google Tag Manager",
+      "detectionCount": 69,
+      "domainCount": 69
     },
     {
       "name": "RSS",
@@ -73,19 +78,14 @@
       "domainCount": 67
     },
     {
-      "name": "Google Tag Manager",
+      "name": "Google Analytics",
       "detectionCount": 66,
       "domainCount": 66
     },
     {
-      "name": "Google Analytics",
-      "detectionCount": 65,
-      "domainCount": 65
-    },
-    {
       "name": "core-js",
-      "detectionCount": 62,
-      "domainCount": 62
+      "detectionCount": 64,
+      "domainCount": 64
     },
     {
       "name": "Cart Functionality",
@@ -94,8 +94,8 @@
     },
     {
       "name": "HSTS",
-      "detectionCount": 54,
-      "domainCount": 54
+      "detectionCount": 56,
+      "domainCount": 56
     },
     {
       "name": "Apache HTTP Server",
@@ -104,8 +104,8 @@
     },
     {
       "name": "reCAPTCHA",
-      "detectionCount": 47,
-      "domainCount": 47
+      "detectionCount": 49,
+      "domainCount": 49
     },
     {
       "name": "CDN / edge",
@@ -113,14 +113,19 @@
       "domainCount": 45
     },
     {
-      "name": "Amazon CloudFront",
-      "detectionCount": 44,
-      "domainCount": 44
-    },
-    {
       "name": "Twitter Emoji (Twemoji)",
       "detectionCount": 43,
       "domainCount": 43
+    },
+    {
+      "name": "Amazon CloudFront",
+      "detectionCount": 42,
+      "domainCount": 42
+    },
+    {
+      "name": "DoubleClick Floodlight",
+      "detectionCount": 40,
+      "domainCount": 40
     },
     {
       "name": "Font Awesome",
@@ -129,16 +134,16 @@
     },
     {
       "name": "Varnish",
-      "detectionCount": 40,
-      "domainCount": 40
-    },
-    {
-      "name": "Google Maps",
-      "detectionCount": 37,
-      "domainCount": 37
+      "detectionCount": 39,
+      "domainCount": 39
     },
     {
       "name": "Lodash",
+      "detectionCount": 38,
+      "domainCount": 38
+    },
+    {
+      "name": "Bootstrap",
       "detectionCount": 36,
       "domainCount": 36
     },
@@ -148,7 +153,7 @@
       "domainCount": 36
     },
     {
-      "name": "Bootstrap",
+      "name": "Google Maps",
       "detectionCount": 35,
       "domainCount": 35
     },
@@ -159,13 +164,8 @@
     },
     {
       "name": "Swiper",
-      "detectionCount": 33,
-      "domainCount": 33
-    },
-    {
-      "name": "DoubleClick Floodlight",
-      "detectionCount": 31,
-      "domainCount": 31
+      "detectionCount": 32,
+      "domainCount": 32
     },
     {
       "name": "React",
@@ -183,11 +183,6 @@
       "domainCount": 28
     },
     {
-      "name": "Google Ads",
-      "detectionCount": 27,
-      "domainCount": 27
-    },
-    {
       "name": "Cloudflare Bot Management",
       "detectionCount": 26,
       "domainCount": 26
@@ -199,6 +194,11 @@
     },
     {
       "name": "Amazon Web Services",
+      "detectionCount": 24,
+      "domainCount": 24
+    },
+    {
+      "name": "Google Ads",
       "detectionCount": 24,
       "domainCount": 24
     },
@@ -228,11 +228,6 @@
       "domainCount": 17
     },
     {
-      "name": "Meta Pixel",
-      "detectionCount": 17,
-      "domainCount": 17
-    },
-    {
       "name": "OpenResty",
       "detectionCount": 17,
       "domainCount": 17
@@ -248,17 +243,37 @@
       "domainCount": 16
     },
     {
+      "name": "Meta Pixel",
+      "detectionCount": 16,
+      "domainCount": 16
+    },
+    {
+      "name": "Akamai",
+      "detectionCount": 15,
+      "domainCount": 15
+    },
+    {
       "name": "Lightbox",
       "detectionCount": 15,
       "domainCount": 15
     },
     {
-      "name": "JavaScript CDN",
+      "name": "Modernizr",
+      "detectionCount": 15,
+      "domainCount": 15
+    },
+    {
+      "name": "DigiCert",
       "detectionCount": 14,
       "domainCount": 14
     },
     {
-      "name": "Modernizr",
+      "name": "GSAP",
+      "detectionCount": 14,
+      "domainCount": 14
+    },
+    {
+      "name": "JavaScript CDN",
       "detectionCount": 14,
       "domainCount": 14
     },
@@ -273,27 +288,12 @@
       "domainCount": 14
     },
     {
-      "name": "Akamai",
-      "detectionCount": 13,
-      "domainCount": 13
-    },
-    {
       "name": "cdnjs",
       "detectionCount": 13,
       "domainCount": 13
     },
     {
-      "name": "DigiCert",
-      "detectionCount": 13,
-      "domainCount": 13
-    },
-    {
       "name": "Google Hosted Libraries",
-      "detectionCount": 13,
-      "domainCount": 13
-    },
-    {
-      "name": "GSAP",
       "detectionCount": 13,
       "domainCount": 13
     },
@@ -308,19 +308,14 @@
       "domainCount": 13
     },
     {
-      "name": "Magnific Popup",
-      "detectionCount": 12,
-      "domainCount": 12
-    },
-    {
       "name": "OWL Carousel",
       "detectionCount": 12,
       "domainCount": 12
     },
     {
-      "name": "ASP.NET",
-      "detectionCount": 11,
-      "domainCount": 11
+      "name": "PWA",
+      "detectionCount": 12,
+      "domainCount": 12
     },
     {
       "name": "Google Cloud",
@@ -333,7 +328,7 @@
       "domainCount": 11
     },
     {
-      "name": "PWA",
+      "name": "Magnific Popup",
       "detectionCount": 11,
       "domainCount": 11
     },
@@ -343,7 +338,12 @@
       "domainCount": 11
     },
     {
-      "name": "AngularJS",
+      "name": "Akamai Bot Manager",
+      "detectionCount": 10,
+      "domainCount": 10
+    },
+    {
+      "name": "ASP.NET",
       "detectionCount": 10,
       "domainCount": 10
     },
@@ -383,12 +383,12 @@
       "domainCount": 10
     },
     {
-      "name": "Mailchimp",
+      "name": "AngularJS",
       "detectionCount": 9,
       "domainCount": 9
     },
     {
-      "name": "Microsoft IIS",
+      "name": "Mailchimp",
       "detectionCount": 9,
       "domainCount": 9
     },
@@ -404,11 +404,6 @@
     },
     {
       "name": "Adobe Fonts",
-      "detectionCount": 8,
-      "domainCount": 8
-    },
-    {
-      "name": "Akamai Bot Manager",
       "detectionCount": 8,
       "domainCount": 8
     },
@@ -429,6 +424,21 @@
     },
     {
       "name": "FitVids.JS",
+      "detectionCount": 8,
+      "domainCount": 8
+    },
+    {
+      "name": "LazySizes",
+      "detectionCount": 8,
+      "domainCount": 8
+    },
+    {
+      "name": "Microsoft IIS",
+      "detectionCount": 8,
+      "domainCount": 8
+    },
+    {
+      "name": "RequireJS",
       "detectionCount": 8,
       "domainCount": 8
     },
@@ -468,27 +478,17 @@
       "domainCount": 7
     },
     {
-      "name": "Cloudflare Turnstile",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
       "name": "FancyBox",
       "detectionCount": 7,
       "domainCount": 7
     },
     {
-      "name": "LazySizes",
+      "name": "Microsoft ASP.NET",
       "detectionCount": 7,
       "domainCount": 7
     },
     {
       "name": "Really Simple SSL & Security",
-      "detectionCount": 7,
-      "domainCount": 7
-    },
-    {
-      "name": "RequireJS",
       "detectionCount": 7,
       "domainCount": 7
     },
@@ -538,12 +538,27 @@
       "domainCount": 7
     },
     {
+      "name": "Akamai mPulse",
+      "detectionCount": 6,
+      "domainCount": 6
+    },
+    {
       "name": "Astra",
       "detectionCount": 6,
       "domainCount": 6
     },
     {
       "name": "Babel",
+      "detectionCount": 6,
+      "domainCount": 6
+    },
+    {
+      "name": "Boomerang",
+      "detectionCount": 6,
+      "domainCount": 6
+    },
+    {
+      "name": "Cloudflare Turnstile",
       "detectionCount": 6,
       "domainCount": 6
     },
@@ -578,12 +593,12 @@
       "domainCount": 6
     },
     {
-      "name": "Microsoft ASP.NET",
+      "name": "Moment.js",
       "detectionCount": 6,
       "domainCount": 6
     },
     {
-      "name": "Moment.js",
+      "name": "OneTrust",
       "detectionCount": 6,
       "domainCount": 6
     },
@@ -608,11 +623,6 @@
       "domainCount": 6
     },
     {
-      "name": "Apple iCloud Mail",
-      "detectionCount": 5,
-      "domainCount": 5
-    },
-    {
       "name": "CookieYes",
       "detectionCount": 5,
       "domainCount": 5
@@ -624,6 +634,16 @@
     },
     {
       "name": "Kinsta",
+      "detectionCount": 5,
+      "domainCount": 5
+    },
+    {
+      "name": "LinkedIn Insight Tag",
+      "detectionCount": 5,
+      "domainCount": 5
+    },
+    {
+      "name": "Microsoft Advertising",
       "detectionCount": 5,
       "domainCount": 5
     },
@@ -663,12 +683,17 @@
       "domainCount": 5
     },
     {
-      "name": "Akamai mPulse",
+      "name": "Adobe Experience Platform Identity Service",
       "detectionCount": 4,
       "domainCount": 4
     },
     {
-      "name": "Boomerang",
+      "name": "Adobe Experience Platform Launch",
+      "detectionCount": 4,
+      "domainCount": 4
+    },
+    {
+      "name": "Apple iCloud Mail",
       "detectionCount": 4,
       "domainCount": 4
     },
@@ -708,17 +733,7 @@
       "domainCount": 4
     },
     {
-      "name": "LinkedIn Insight Tag",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
       "name": "Magento",
-      "detectionCount": 4,
-      "domainCount": 4
-    },
-    {
-      "name": "Microsoft Advertising",
       "detectionCount": 4,
       "domainCount": 4
     },
@@ -728,7 +743,7 @@
       "domainCount": 4
     },
     {
-      "name": "OneTrust",
+      "name": "Piwik PRO Core",
       "detectionCount": 4,
       "domainCount": 4
     },
@@ -754,16 +769,6 @@
     },
     {
       "name": "Adobe Client Data Layer",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Adobe Experience Platform Identity Service",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Adobe Experience Platform Launch",
       "detectionCount": 3,
       "domainCount": 3
     },
@@ -843,6 +848,11 @@
       "domainCount": 3
     },
     {
+      "name": "Linkedin Ads",
+      "detectionCount": 3,
+      "domainCount": 3
+    },
+    {
       "name": "LottieFiles",
       "detectionCount": 3,
       "domainCount": 3
@@ -868,17 +878,17 @@
       "domainCount": 3
     },
     {
+      "name": "New Relic",
+      "detectionCount": 3,
+      "domainCount": 3
+    },
+    {
       "name": "Next.js",
       "detectionCount": 3,
       "domainCount": 3
     },
     {
       "name": "OVHcloud",
-      "detectionCount": 3,
-      "domainCount": 3
-    },
-    {
-      "name": "Piwik PRO Core",
       "detectionCount": 3,
       "domainCount": 3
     },
@@ -894,6 +904,11 @@
     },
     {
       "name": "RankMath SEO",
+      "detectionCount": 3,
+      "domainCount": 3
+    },
+    {
+      "name": "Salesforce",
       "detectionCount": 3,
       "domainCount": 3
     },
@@ -918,6 +933,11 @@
       "domainCount": 3
     },
     {
+      "name": "UPS",
+      "detectionCount": 3,
+      "domainCount": 3
+    },
+    {
       "name": "VideoJS",
       "detectionCount": 3,
       "domainCount": 3
@@ -936,6 +956,11 @@
       "name": "ZURB Foundation",
       "detectionCount": 3,
       "domainCount": 3
+    },
+    {
+      "name": "Adobe Analytics",
+      "detectionCount": 2,
+      "domainCount": 2
     },
     {
       "name": "Adobe Experience Manager",
@@ -973,6 +998,11 @@
       "domainCount": 2
     },
     {
+      "name": "Azure",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
       "name": "Beaver Builder",
       "detectionCount": 2,
       "domainCount": 2
@@ -1004,6 +1034,11 @@
     },
     {
       "name": "Complianz",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
+      "name": "Datadog",
       "detectionCount": 2,
       "domainCount": 2
     },
@@ -1093,11 +1128,6 @@
       "domainCount": 2
     },
     {
-      "name": "Linkedin Ads",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
       "name": "Linkedin Sign-in",
       "detectionCount": 2,
       "domainCount": 2
@@ -1124,11 +1154,6 @@
     },
     {
       "name": "MyWebsite Creator",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "New Relic",
       "detectionCount": 2,
       "domainCount": 2
     },
@@ -1183,7 +1208,7 @@
       "domainCount": 2
     },
     {
-      "name": "Salesforce",
+      "name": "Salesforce Interaction Studio",
       "detectionCount": 2,
       "domainCount": 2
     },
@@ -1233,6 +1258,11 @@
       "domainCount": 2
     },
     {
+      "name": "TikTok Pixel",
+      "detectionCount": 2,
+      "domainCount": 2
+    },
+    {
       "name": "toastr",
       "detectionCount": 2,
       "domainCount": 2
@@ -1249,11 +1279,6 @@
     },
     {
       "name": "UNIX",
-      "detectionCount": 2,
-      "domainCount": 2
-    },
-    {
-      "name": "UPS",
       "detectionCount": 2,
       "domainCount": 2
     },
@@ -1318,11 +1343,6 @@
       "domainCount": 1
     },
     {
-      "name": "Adobe Analytics",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
       "name": "Adobe Flash",
       "detectionCount": 1,
       "domainCount": 1
@@ -1358,12 +1378,27 @@
       "domainCount": 1
     },
     {
+      "name": "Amazon Advertising",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "American Express",
       "detectionCount": 1,
       "domainCount": 1
     },
     {
       "name": "ANS",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "AppDynamics",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Attentive",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -1383,7 +1418,7 @@
       "domainCount": 1
     },
     {
-      "name": "Azure",
+      "name": "Azure Front Door",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -1538,6 +1573,11 @@
       "domainCount": 1
     },
     {
+      "name": "Coveo",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Cowboy",
       "detectionCount": 1,
       "domainCount": 1
@@ -1559,11 +1599,6 @@
     },
     {
       "name": "Cybot",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Datadog",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -1783,6 +1818,11 @@
       "domainCount": 1
     },
     {
+      "name": "Kaltura",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Klaviyo",
       "detectionCount": 1,
       "domainCount": 1
@@ -1829,6 +1869,11 @@
     },
     {
       "name": "Matter.js",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Medallia",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -1913,11 +1958,6 @@
       "domainCount": 1
     },
     {
-      "name": "Pendo",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
       "name": "PIXIjs",
       "detectionCount": 1,
       "domainCount": 1
@@ -1993,6 +2033,11 @@
       "domainCount": 1
     },
     {
+      "name": "Resonate",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Retina.js",
       "detectionCount": 1,
       "domainCount": 1
@@ -2023,6 +2068,11 @@
       "domainCount": 1
     },
     {
+      "name": "Salesforce Commerce Cloud",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
       "name": "Segment",
       "detectionCount": 1,
       "domainCount": 1
@@ -2049,6 +2099,11 @@
     },
     {
       "name": "sidr",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Sitecore",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -2084,11 +2139,6 @@
     },
     {
       "name": "Storyly",
-      "detectionCount": 1,
-      "domainCount": 1
-    },
-    {
-      "name": "Stripe",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -2138,12 +2188,12 @@
       "domainCount": 1
     },
     {
-      "name": "Three.js",
+      "name": "theTradeDesk",
       "detectionCount": 1,
       "domainCount": 1
     },
     {
-      "name": "TikTok Pixel",
+      "name": "Three.js",
       "detectionCount": 1,
       "domainCount": 1
     },
@@ -2314,6 +2364,16 @@
     },
     {
       "name": "Xserver",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Yodel",
+      "detectionCount": 1,
+      "domainCount": 1
+    },
+    {
+      "name": "Zendesk",
       "detectionCount": 1,
       "domainCount": 1
     },
