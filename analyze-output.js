@@ -213,8 +213,8 @@ function aggregateCanonicalCounts(data) {
 }
 
 /**
- * Alias-uri (merge-technologies) + același nume indiferent de majuscule → o singură intrare,
- * cu reuniune de domenii (domainCount corect, fără dublare la același site).
+ * Aliases (merge-technologies) + the same name regardless of casing → a single entry,
+ * with a union of domains (correct domainCount, without double-counting the same site).
  *
  * @returns {Array<{ name: string, detectionCount: number, domainCount: number, domains: Set<string> }>}
  */
@@ -266,7 +266,7 @@ function aggregateCaseFoldedCanonical(data) {
 }
 
 /**
- * Union-find pe nume după `namesLookSimilarForMerge`; însumează detecții și reuniune de domenii.
+ * Union-find by name via `namesLookSimilarForMerge`; sums detections and unions domains.
  *
  * @param {Array<{ name: string, detectionCount: number, domainCount: number, domains: Set<string> }>} items
  * @returns {{ list: Array<{ name: string, detectionCount: number, domainCount: number }>, distinctBefore: number, distinctAfter: number }}
@@ -419,7 +419,7 @@ function main() {
 
   const similarGroups = findSimilarNameGroups(uniqueTechNames)
 
-  /** Fișier de output: doar tehnologii distincte (canonical NAME_ALIASES + fold case + merge similitudine). */
+  /** Output file: distinct technologies only (canonical NAME_ALIASES + case-fold + similarity merge). */
   const outputPayload = {
     summary: {
       domainCount: data.length,
@@ -436,36 +436,36 @@ function main() {
   console.log(`Written: ${path.resolve(outputPath)}\n`)
   console.log('=== wappalyzer-results summary ===\n')
 
-  console.log('--- Tipul datelor (structură) ---')
+  console.log('--- Data type (structure) ---')
   console.log(
-    'Fișierul este un JSON: tablou de obiecte, câte unul per domeniu analizat.'
+    'The file is JSON: an array of objects, one per analyzed domain.'
   )
   console.log(
-    `Chei observate la nivel de rând: ${fieldStats.rowKeys.join(', ') || '(niciuna)'}`
+    `Observed keys at row level: ${fieldStats.rowKeys.join(', ') || '(none)'}`
   )
   console.log(
-    `Chei observate pe fiecare intrare din “technologies”: ${fieldStats.techKeys.join(', ') || '(niciuna)'}`
+    `Observed keys on each “technologies” entry: ${fieldStats.techKeys.join(', ') || '(none)'}`
   )
   console.log(
-    'Semantica tipică: `domain` = hostname; `technologies` = listă de detectări; fiecare are `name`, opțional `version`, și `proof` (text explicativ).'
+    'Typical semantics: `domain` = hostname; `technologies` = list of detections; each has `name`, optional `version`, and `proof` (explanatory text).'
   )
   console.log('')
-  console.log(`Intrări în tablou (domenii): ${data.length}`)
-  console.log(`Total înregistrări “technologies” (detecții): ${fieldStats.techCount}`)
-  console.log(`  • cu version null: ${fieldStats.versionNull}`)
-  console.log(`  • cu version setat: ${fieldStats.versionNonNull}`)
-  console.log(`  • name lipsă/gol: ${fieldStats.nameMissing}`)
+  console.log(`Array entries (domains): ${data.length}`)
+  console.log(`Total “technologies” records (detections): ${fieldStats.techCount}`)
+  console.log(`  • with version null: ${fieldStats.versionNull}`)
+  console.log(`  • with version set: ${fieldStats.versionNonNull}`)
+  console.log(`  • name missing/empty: ${fieldStats.nameMissing}`)
   console.log(
-    `  • proof lipsă ca proprietate: ${fieldStats.proofMissing}; proof string gol: ${fieldStats.proofEmpty}`
+    `  • proof missing as a property: ${fieldStats.proofMissing}; proof empty string: ${fieldStats.proofEmpty}`
   )
   if (fieldStats.techCount > 0) {
     console.log(
-      `  • lungime proof (caractere): min ${fieldStats.proofLenMin}, mediană ~${Math.round(fieldStats.proofLenMedian)}, max ${fieldStats.proofLenMax}`
+      `  • proof length (chars): min ${fieldStats.proofLenMin}, median ~${Math.round(fieldStats.proofLenMedian)}, max ${fieldStats.proofLenMax}`
     )
   }
   console.log('')
 
-  console.log('--- Agregate (ca înainte) ---')
+  console.log('--- Aggregates (as before) ---')
   console.log(`Domains in file: ${data.length}`)
   console.log(
     `Domains with zero technologies: ${domainsWithNoTechnologies}`
@@ -477,30 +477,30 @@ function main() {
     `Distinct technology names (across all domains): ${uniqueTechNames.size}`
   )
   console.log(
-    `(consolă) După doar aliasuri NAME_ALIASES: ${canonicalAgg.counts.size} nume`
+    `(console) After applying NAME_ALIASES only: ${canonicalAgg.counts.size} names`
   )
   console.log(
-    `După alias + fold case: ${foldedItems.length} nume distincte`
+    `After alias + case-fold: ${foldedItems.length} distinct names`
   )
   console.log(
-    `După + merge similitudine → scris în fișier ca distinctTechnologyCount: ${mergedReporting.distinctAfter} (reduse față de fold cu ${mergedReporting.distinctBefore - mergedReporting.distinctAfter})`
+    `After + similarity merge → written to file as distinctTechnologyCount: ${mergedReporting.distinctAfter} (reduced vs case-fold by ${mergedReporting.distinctBefore - mergedReporting.distinctAfter})`
   )
   console.log(
-    'Fișierul JSON: doar `technologies` (distincte canonice) + `summary`.'
+    'The JSON file contains only `technologies` (canonical distinct) + `summary`.'
   )
   console.log('')
 
-  console.log('--- (doar consolă) Nume foarte similare în date brute ---')
+  console.log('--- (console only) Very similar names in raw data ---')
   console.log(
-    'Reguli: același text după normalizare (ex. diferențe de majuscule); prefix “Nume …” (ex. părinte–copil); distanță Levenshtein mică (prag mai strict dacă ambele nume au mai multe cuvinte).'
+    'Rules: identical text after normalization (e.g., casing differences); “Name …” prefix containment (e.g., parent–child); small Levenshtein distance (stricter threshold when both names have multiple words).'
   )
   if (similarGroups.length === 0) {
-    console.log('Nu s-au găsit perechi/grupuri de nume similare.')
+    console.log('No similar name pairs/groups were found.')
   } else {
-    console.log(`Grupuri găsite: ${similarGroups.length}\n`)
+    console.log(`Groups found: ${similarGroups.length}\n`)
     for (let g = 0; g < similarGroups.length; g++) {
       const grp = similarGroups[g]
-      console.log(`[${g + 1}] (${grp.length} nume)`)
+      console.log(`[${g + 1}] (${grp.length} names)`)
       for (const name of grp) {
         console.log(`    • ${name}`)
       }
